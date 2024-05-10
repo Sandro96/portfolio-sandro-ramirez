@@ -1,0 +1,44 @@
+{
+    "navbar": {
+        "home": "Home",
+        "about": "About",
+        "skills": "Skills",
+        "projects": "Projects",
+        "contact": "Contact",
+        "lng": "EN"
+    },
+    "header": {
+        "title": "FullStack Web Developer",
+        "download": "Download CV"
+    },
+    "about": {
+        "me01": "Hello! I'm ",
+        "me02": ", a FullStack Web Developer passionate about turning ideas into digital reality.",
+        "me03": "Let's create something amazing together!",
+        "personal-info": "Personal information",
+        "birthday": "Birthdate",
+        "phone": "Phone",
+        "email": "Email",
+        "location": "Location",
+        "games": "Games",
+        "music": "Music",
+        "movies": "Movies",
+        "sports": "Sports"
+    },
+    "projects": {
+        "code": "Code",
+        "view": "View",
+        "design": "Design"
+    },
+    "contact": {
+        "name": "Your name",
+        "email": "Your email address",
+        "subject": "Subject",
+        "message": "Your message",
+        "requiredFields": "Please fill out this field.",
+        "invalidEmail": "Invalid Email Address",
+        "send": "Send message",
+        "formSubmitted": "Email sent successfully!",
+        "formError": "Failed to send email. Please try again later."
+    }
+}

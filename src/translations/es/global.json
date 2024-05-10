@@ -1,0 +1,44 @@
+{
+    "navbar": {
+        "home": "Inicio",
+        "about": "Sobre mi",
+        "skills": "Habilidades",
+        "projects": "Proyectos",
+        "contact": "Contacto",
+        "lng": "ES"
+    },
+    "header": {
+        "title": "Desarrollador FullStack",
+        "download": "Descargar CV"
+    },
+    "about": {
+        "me01": "Hola! Me llamo ",
+        "me02": ", soy un Desarrollador FullStack apasionado por convertir ideas en realidad.",
+        "me03": "Creemos algo asombroso juntos!",
+        "personal-info": "Información personal",
+        "birthday": "Fecha de nacimiento",
+        "phone": "Numero de contacto",
+        "email": "Correo",
+        "location": "Localización",
+        "games": "Juegos",
+        "music": "Música",
+        "movies": "Peliculas",
+        "sports": "Deportes"
+    },
+    "projects": {
+        "code": "Codigo",
+        "view": "Vista",
+        "design": "Diseño"
+    },
+    "contact": {
+        "name": "Nombre",
+        "email": "Email",
+        "subject": "Asunto",
+        "message": "Mensaje",
+        "requiredFields": "Por favor complete este campo.",
+        "invalidEmail": "Email Invalido.",
+        "send": "Enviar",
+        "formSubmitted": "Mensaje enviado con exito!",
+        "formError": "Fallo al enviar. Por favor vuelva a intentarlo."
+    }
+}

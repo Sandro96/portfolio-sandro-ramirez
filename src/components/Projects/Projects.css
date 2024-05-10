@@ -1,0 +1,138 @@
+.projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.projects .wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px;
+    width: 73%;
+}
+
+.projects .wrapper .card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    border-radius: 8px;
+    padding: 20px;
+    background-color: var(--bg-secundary-color);
+    display: flex;
+    gap: 25px;
+}
+
+.projects .wrapper .card .data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.projects .wrapper .card img {
+    height: 100%;
+    width: 360px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.projects .wrapper .card .data .btts {
+    display: flex;
+    gap: 10px;
+}
+
+.projects .wrapper .card .data .btts button {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 13px;
+}
+
+.projects .wrapper .card .data .btts img {
+    width: 20px;
+    height: auto;
+}
+
+.projects .wrapper .card .data .btts button {
+    position: relative;
+}
+
+.projects .wrapper .card .data .btts button:hover img {
+    filter: invert(1);
+}
+
+.projects .wrapper .card .data .techs .list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.projects .wrapper .card .data .techs .list .item {
+    font-weight: 600;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.projects .wrapper .card .data .techs .list .item img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 1300px) {
+    .projects .wrapper{
+        width: 100%;
+    }
+    .projects .wrapper .card img {
+        width: 320px;
+    }
+    .projects .wrapper .card .data .btts button {
+        font-size: 12px;
+    }
+    
+    .projects .wrapper .card .data .btts img {
+        width: 18px;
+    }
+    .projects button{
+        padding: 0.4rem 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .projects .wrapper .card{
+        flex-direction: column;
+        align-items: center;
+    }
+    .projects .wrapper .card img {
+        width: 360px;
+    }
+    .projects .wrapper .data{
+        align-items: center;
+        text-align: center;
+        gap: 25px;
+    }
+    .projects .wrapper .card .data .btts button {
+        font-size: 14px;
+    }
+    
+    .projects .wrapper .card .data .btts img {
+        width: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .projects .wrapper .card{
+        padding: 10px;
+    }
+    .projects .wrapper .card img {
+        width: 310px;
+    }
+    .projects .wrapper .card .data .techs .list {
+        justify-content: center;
+    }
+}

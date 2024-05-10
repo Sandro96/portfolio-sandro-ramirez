@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "name": "Portfolio Web",
+        "img": "src/assets/img/projects01.png",
+        "description": "A modern portfolio showcasing web and digital projects with detailed insights into creative solutions and skills. A reflection of dedication to digital excellence.",
+        "techs": [
+            2
+        ],
+        "buttonFlag": 3
+    },
+    {
+        "id": 2,
+        "name": "Alka's Telecom",
+        "img": "src/assets/img/projects02.png",
+        "description": "A landing page for Alka's Telecom, a fictitious telecom company offering cutting-edge mobile plans and devices. Designed with a focus on user experience, the site invites visitors to explore services through an intuitive and visually appealing interface.",
+        "techs": [
+            2,
+            15
+        ],
+        "buttonFlag": 1
+    },
+    {
+        "id": 3,
+        "name": "Alka's Supermarket",
+        "img": "src/assets/img/projects03.png",
+        "description": "An internal system designed for the sales staff of Alka's Supermarket, a fictitious supermarket. The focus is on service efficiency, featuring tables for product management, invoice tracking, and salesperson performance.",
+        "techs": [
+            2,
+            3,
+            16
+        ],
+        "buttonFlag": 2
+    }
+]
