@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Portfolio Web",
-        "img": "./projects01.png",
+        "img": "assets/img/projects01.png",
         "description": "Un portafolio moderno que muestra proyectos web y digitales con detalles sobre soluciones creativas y habilidades. Un reflejo de dedicación a la excelencia digital.",
         "techs": [
             2
