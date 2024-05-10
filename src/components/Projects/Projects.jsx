@@ -5,8 +5,8 @@ import projects_en from '../../assets/data/projects_en.json';
 import projects_es from '../../assets/data/projects_es.json';
 import skillsData from '../../assets/data/skills.json';
 import projectsIcon01 from '/src/assets/img/projectsIcon01.png';
-import projectsIcon02 from '../../assets/img/projectsIcon02.png';
-import projectsIcon03 from '../../assets/img/projectsIcon03.png';
+import projectsIcon02 from '/src/assets/img/projectsIcon02.png';
+import projectsIcon03 from '/src/assets/img/projectsIcon03.png';
 
 const Projects = () => {
   const { t, i18n } = useTranslation("global");
