@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Portfolio Web",
-        "img": "src/assets/img/projects01.png",
+        "img": "img/projects01.png",
         "description": "Un portafolio moderno que muestra proyectos web y digitales con detalles sobre soluciones creativas y habilidades. Un reflejo de dedicación a la excelencia digital.",
         "techs": [
             2
@@ -12,7 +12,7 @@
     {
         "id": 2,
         "name": "Alka's Telecom",
-        "img": "src/assets/img/projects02.png",
+        "img": "img/projects02.png",
         "description": "Una página de inicio para Alka's Telecom, una compañía de telecomunicaciones ficticia que ofrece planes y dispositivos móviles de vanguardia. Diseñada con un enfoque en la experiencia del usuario, el sitio invita a los visitantes a explorar los servicios a través de una interfaz intuitiva y visualmente atractiva.",
         "techs": [
             2,
@@ -23,7 +23,7 @@
     {
         "id": 3,
         "name": "Alka's Supermarket",
-        "img": "src/assets/img/projects03.png",
+        "img": "img/projects03.png",
         "description": "Un sistema interno diseñado para el personal de ventas de Alka's Supermarket, un supermercado ficticio. El enfoque está en la eficiencia del servicio, con tablas para la gestión de productos, seguimiento de facturas y rendimiento de los vendedores.",
         "techs": [
             2,
