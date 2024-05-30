@@ -83,8 +83,7 @@
 
 .about .personal-cards .item img {
     height: 50px;
-    width: fit-content;
-    object-fit: cover;
+    width: auto;
 }
 
 .about .tooltip {
