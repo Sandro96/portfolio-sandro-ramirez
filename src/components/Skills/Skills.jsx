@@ -10,8 +10,18 @@ const Skills = () => {
   const opacityInit = 0.1; // Opacidad inicial
   const opacityHover = 0.4; // Opacidad al pasar el mouse
 
+  // Función para mezclar (shuffle) un array
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
   useEffect(() => {
-    setSkills(skillsData);
+    const shuffledSkills = shuffleArray(skillsData);
+    setSkills(shuffledSkills);
   }, []);
 
   return (
@@ -40,7 +50,7 @@ const Skills = () => {
                   e.currentTarget.style.border = '2px solid transparent';
                 }}
               >
-                <img className='image' src={skill.url} alt={skill.name} />
+                <img className='image' src={skill.icon} alt={skill.name} />
                 {hoveredSkill === skill.name && (
                   <div className='tooltip' style={{ borderColor: skill.color, color: skill.color }}>
                     {skill.name}

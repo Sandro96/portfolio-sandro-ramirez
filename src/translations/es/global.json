@@ -39,6 +39,7 @@
         "invalidEmail": "Email Invalido.",
         "send": "Enviar",
         "formSubmitted": "Mensaje enviado con exito!",
-        "formError": "Fallo al enviar. Por favor vuelva a intentarlo."
+        "formError": "Fallo al enviar. Por favor vuelva a intentarlo.",
+        "sending": "Enviando..."
     }
 }

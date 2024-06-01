@@ -25,8 +25,8 @@ const Projects = () => {
   // Procesamos los proyectos con las habilidades
   const projectsWithSkills = mapSkillsToProjects(projects, skillsData);
 
-  //Función para renderizar los botones
-  const renderButtons = (buttonFlag) => {
+  // Función para renderizar los botones
+  const renderButtons = (project) => {
     const buttonTranslations = {
       1: ["projects.code", "projects.view", "projects.design"],
       2: ["projects.code", "projects.view"],
@@ -43,13 +43,17 @@ const Projects = () => {
       "projects.design": projectsIcon03
     };
 
-    return buttonTranslations[buttonFlag].map((translationKey, index) => {
+    return buttonTranslations[project.buttonFlag].map((translationKey, index) => {
       const icon = buttonIcons[translationKey];
+      const url = project.urls[translationKey.split('.')[1]]; // Obtener la URL correspondiente
+
       return (
-        <button key={index}>
-          {icon && <img src={icon} alt="Icon" />} 
-          {t(translationKey)}
-        </button>
+        <a key={index} href={url} target="_blank" rel="noopener noreferrer">
+          <button>
+            {icon && <img src={icon} alt="Icon" />} 
+            {t(translationKey)}
+          </button>
+        </a>
       );
     });
   };
@@ -65,13 +69,13 @@ const Projects = () => {
               <h4>{project.name}</h4>
               <p>{project.description}</p>
               <div className="btts">
-                {renderButtons(project.buttonFlag)}
+                {renderButtons(project)}
               </div>
               <div className="techs">
                 <div className="list">
                   {project.techs.map((tech, techIndex) => (
                     <div className="item" key={techIndex}>
-                      <img src={tech.url} alt={tech.name} />
+                      <img src={tech.icon} alt={tech.name} />
                       {tech.name}
                     </div>
                   ))}

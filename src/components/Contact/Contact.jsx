@@ -12,37 +12,36 @@ import wpp01 from '../../assets/svg/wpp01.svg';
 const Contact = () => {
   const { t } = useTranslation("global");
 
-  // Definimos las claves de traducción para los campos de contacto
   const contact = {
     name: "contact.name",
     email: "contact.email",
     subject: "contact.subject",
     send: "contact.send",
-    requiredFields: "contact.requiredFields", // Clave para los campos requeridos
-    invalidEmail: "contact.invalidEmail", // Clave para el mensaje de email inválido
-    formSubmitted: "contact.formSubmitted", // Clave para el mensaje de envío exitoso
-    formError: "contact.formError" // Clave para el mensaje de error en el envío
+    requiredFields: "contact.requiredFields",
+    invalidEmail: "contact.invalidEmail",
+    formSubmitted: "contact.formSubmitted",
+    formError: "contact.formError"
   };
 
-  // Referencia al formulario
   const form = useRef();
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Función para enviar el correo electrónico
   const sendEmail = async (e) => {
     e.preventDefault();
 
-    // Obtenemos los valores del formulario
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+
     const formData = new FormData(form.current);
     const values = Object.fromEntries(formData.entries());
 
-    // Expresión regular para validar el correo electrónico
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,6}$/;
 
-    // Objetos para manejar los mensajes de error
     const requiredFieldsError = t(contact.requiredFields);
     const errors = {};
 
-    // Validamos los campos del formulario
     Object.entries(values).forEach(([fieldName, value]) => {
       if (value.trim() === "") {
         errors[fieldName] = requiredFieldsError;
@@ -51,30 +50,24 @@ const Contact = () => {
       }
     });
 
-    // Si no hay errores, enviamos el formulario
     if (Object.keys(errors).length === 0) {
       try {
         await emailjs.sendForm('service_r018pj7', 'template_cfcu2t9', form.current, {
           publicKey: 'AJgd8j6cgaX-H7wgm',
         });
-        // Mostramos mensaje de éxito
         toast.success(t(contact.formSubmitted));
-        // Reseteamos el formulario
         form.current.reset();
-        // Resetear errores aquí
         setErrors({});
       } catch (error) {
-        // Mostramos mensaje de error
         toast.error(t(contact.formError));
+      } finally {
+        setIsSubmitting(false);
       }
     } else {
-      // Mostramos los errores de validación
       setErrors(errors);
+      setIsSubmitting(false);
     }
   };
-
-
-  const [errors, setErrors] = useState({});
 
   return (
     <div className='contact bg-color'>
@@ -102,7 +95,7 @@ const Contact = () => {
             {errors.message && <p className="error-message">{errors.message}</p>}
           </div>
 
-          <button type='submit'>{t(contact.send)}</button>
+          <button type='submit' disabled={isSubmitting}>{isSubmitting ? t("contact.sending") : t(contact.send)}</button>
 
         </form>
         <div className='social-media'>

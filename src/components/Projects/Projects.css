@@ -29,7 +29,7 @@
 }
 
 .projects .wrapper .card img {
-    height: 100%;
+    height: 240px;
     width: 360px;
     border-radius: 8px;
     object-fit: cover;

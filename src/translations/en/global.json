@@ -39,6 +39,7 @@
         "invalidEmail": "Invalid Email Address",
         "send": "Send message",
         "formSubmitted": "Email sent successfully!",
-        "formError": "Failed to send email. Please try again later."
+        "formError": "Failed to send email. Please try again later.",
+        "sending": "Sending..."
     }
 }
