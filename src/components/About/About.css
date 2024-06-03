@@ -3,6 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 50px;
+    box-shadow: 0 0 10px #000;
 }
 
 .about .container {
@@ -21,7 +22,7 @@
     border: 10px solid var(--primary-color);
     max-width: 440px;
     max-height: 440px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px #000;
 }
 
 .about .photo-side img {

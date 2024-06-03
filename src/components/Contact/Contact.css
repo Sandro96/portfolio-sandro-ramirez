@@ -1,10 +1,10 @@
 .contact {
-    border-top: 1px #fff solid;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 50px 0;
+    box-shadow: 0 0 10px #000;
 }
 
 .contact .container {

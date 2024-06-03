@@ -5,8 +5,8 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
-    border-bottom: 1px solid #fff;
+    z-index: 1000;    
+    box-shadow: 0 0 10px #000;
 }
 
 .navbar .content {
@@ -36,6 +36,12 @@
 
 /* Media queries */
 
+@media screen and (min-width: 768px){
+    .mobile-nav-content-wrapper{
+        display: none;
+    }
+}
+
 @media screen and (max-width: 1300px) {
     .navbar .brand {
         display: none;
@@ -49,7 +55,6 @@
     }
 }
 
-/* Mobile Navbar Styles */
 @media screen and (max-width: 768px) {
     .navbar {
         height: 70px;
@@ -92,7 +97,7 @@
         background-color: var(--bg-secundary-color); /* Fondo secundario para los botones */
         display: flex;
         justify-content: center; /* Centrar el contenido */
-        border-bottom: 1px solid #fff;
+        box-shadow: 0 5px 5px #000;
         border-top: 1px solid #fff;
     }
 
