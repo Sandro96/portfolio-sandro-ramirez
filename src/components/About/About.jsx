@@ -1,7 +1,7 @@
 import React from 'react';
 import './About.css';
 import { useTranslation } from 'react-i18next';
-import photo from '../../assets/img/photo.png';
+import photo from '../../assets/img/photo01.png';
 import gamesIcon from '../../assets/img/games01.png';
 import musicIcon from '../../assets/img/music01.png';
 import moviesIcon from '../../assets/img/movies01.png';
