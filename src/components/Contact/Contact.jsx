@@ -52,9 +52,12 @@ const Contact = () => {
 
     if (Object.keys(errors).length === 0) {
       try {
-        await emailjs.sendForm('service_r018pj7', 'template_cfcu2t9', form.current, {
-          publicKey: 'AJgd8j6cgaX-H7wgm',
-        });
+        await emailjs.sendForm(
+          import.meta.env.VITE_SERVICE_ID,
+          import.meta.env.VITE_TEMPLATE_ID,
+          form.current,
+          import.meta.env.VITE_PUBLIC_KEY
+        );
         toast.success(t(contact.formSubmitted));
         form.current.reset();
         setErrors({});
@@ -105,7 +108,6 @@ const Contact = () => {
           <a className="icon" href="https://wa.me/598094095078" target="_blank" rel="noopener noreferrer"><img src={wpp01} alt="WhatsApp" /></a>
         </div>
       </div>
-
       <ToastContainer
         position="bottom-right"
         autoClose={5000}
