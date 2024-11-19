@@ -1,29 +1,36 @@
 {
     "navbar": {
         "home": "Inicio",
-        "about": "Sobre mi",
-        "skills": "Habilidades",
+        "resume": "Resumen",
         "projects": "Proyectos",
         "contact": "Contacto",
         "lng": "ES"
     },
     "header": {
-        "title": "Desarrollador FullStack",
+        "subTitle": "Desarrollador FullStack",
+        "hi": "Hola, soy",
         "download": "Descargar CV"
     },
-    "about": {
+    "resume": {
+        "experience": "Experiencia",
+        "education": "Educación",
+        "skills": "Habilidades",
+        "about": "Sobre mi",
         "me01": "Hola! Me llamo ",
-        "me02": ", soy un Desarrollador FullStack apasionado por convertir ideas en realidad.",
-        "me03": "Creemos algo asombroso juntos!",
+        "me02": ". Desarrollador FullStack apasionado por la tecnología y la creación de soluciones innovadoras.",
+        "me03": "Descubre cómo puedo contribuir a tus ideas!",
+        "filter-all": "Todas",
+        "filter-other": "Otras",
         "personal-info": "Información personal",
-        "birthday": "Fecha de nacimiento",
-        "phone": "Numero de contacto",
-        "email": "Correo",
+        "name": "Nombre",
+        "age": "Edad",
+        "email": "Correo electrónico",
         "location": "Localización",
         "games": "Juegos",
         "music": "Música",
         "movies": "Peliculas",
         "sports": "Deportes"
+
     },
     "projects": {
         "code": "Codigo",

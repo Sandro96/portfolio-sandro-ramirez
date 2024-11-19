@@ -1,67 +1,123 @@
-import React, { useState, useEffect } from 'react';
-import './Skills.css';
-import { useTranslation } from 'react-i18next';
-import skillsData from '../../assets/data/skills.json';
+import React, { useState } from "react";
+import "./Skills.css";
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import skillsData from "../../assets/data/skills/skills.json";
+import {
+  FaReact,
+  FaAngular,
+  FaBootstrap,
+  FaNodeJs,
+} from "react-icons/fa";
+import {
+  SiTypescript,
+  SiTailwindcss,
+  SiDotnet,
+  SiMicrosoftsqlserver,
+  SiMongodb,
+  SiPostman,
+  SiOctopusdeploy,
+  SiTeamcity,
+} from "react-icons/si";
+
+const iconMap = {
+  FaReact: FaReact,
+  FaAngular: FaAngular,
+  SiTypescript: SiTypescript,
+  SiTailwindcss: SiTailwindcss,
+  FaBootstrap: FaBootstrap,
+  SiDotnet: SiDotnet,
+  FaNodeJs: FaNodeJs,
+  SiMicrosoftsqlserver: SiMicrosoftsqlserver,
+  SiMongodb: SiMongodb,
+  SiPostman: SiPostman,
+  SiOctopusdeploy: SiOctopusdeploy,
+  SiTeamcity: SiTeamcity,
+};
 
 const Skills = () => {
-  const { t } = useTranslation('global');
-  const [skills, setSkills] = useState([]);
-  const [hoveredSkill, setHoveredSkill] = useState(null);
-  const opacityInit = 0.1; // Opacidad inicial
-  const opacityHover = 0.4; // Opacidad al pasar el mouse
+  const { t } = useTranslation("global");
+  const [filter, setFilter] = useState("all");
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  // Función para mezclar (shuffle) un array
-  const shuffleArray = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
+  const filteredSkills = skillsData.filter(
+    (skill) => filter === "all" || skill.filter === filter
+  );
+
+  const handleFilterClick = (newFilter, index) => {
+    setFilter(newFilter);
+    setActiveIndex(index);
   };
 
-  useEffect(() => {
-    const shuffledSkills = shuffleArray(skillsData);
-    setSkills(shuffledSkills);
-  }, []);
-
   return (
-    <div className='skills container'>
-      <h3>{t('navbar.skills')}</h3>
-      <div className='content'>
-        {skills.map((skill) => (
-          <div className='row' key={skill.id}>
-            <div
-              className='card-wrapper'
-              onMouseEnter={() => setHoveredSkill(skill.name)}
-              onMouseLeave={() => setHoveredSkill(null)}
-            >
-              <div
-                className='card'
-                style={{
-                  backgroundColor: `${skill.color}${Math.round(opacityInit * 255).toString(16)}`,
-                  transition: 'background-color 0.3s, border-color 0.3s'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = `${skill.color}${Math.round(opacityHover * 255).toString(16)}`;
-                  e.currentTarget.style.border = `2px solid ${skill.color}`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = `${skill.color}${Math.round(opacityInit * 255).toString(16)}`;
-                  e.currentTarget.style.border = '2px solid transparent';
-                }}
-              >
-                <img className='image' src={skill.icon} alt={skill.name} />
-                {hoveredSkill === skill.name && (
-                  <div className='tooltip' style={{ borderColor: skill.color, color: skill.color }}>
-                    {skill.name}
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
+    <div className="skills">
+      <div className="filter-buttons">
+        <a
+          onClick={() => handleFilterClick("all", 0)}
+          className={activeIndex === 0 ? "active" : ""}
+        >
+          {t("resume.filter-all")}
+        </a>
+        <a
+          onClick={() => handleFilterClick("front", 1)}
+          className={activeIndex === 1 ? "active" : ""}
+        >
+          Frontend
+        </a>
+        <a
+          onClick={() => handleFilterClick("back", 2)}
+          className={activeIndex === 2 ? "active" : ""}
+        >
+          Backend
+        </a>
+        <a
+          onClick={() => handleFilterClick("other", 3)}
+          className={activeIndex === 3 ? "active" : ""}
+        >
+          {t("resume.filter-other")}
+        </a>
+        <span style={{ left: `${activeIndex * 100}px` }}></span>
+      </div>
+      <div className="wrapper">
+        {filteredSkills.map((skill) => (
+          <SkillCard key={skill.id} skill={skill} />
         ))}
       </div>
     </div>
+  );
+};
+
+const SkillCard = ({ skill }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: false, 
+    threshold: 0.2, 
+  });
+
+  const IconComponent = iconMap[skill.icon];
+
+  return (
+    <motion.div
+      ref={ref}
+      className="card"
+      style={{ backgroundColor: `${skill.color}1A`, transition: "0.3s" }}
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.border = `2px solid ${skill.color}`;
+        e.currentTarget.style.color = `${skill.color}`;
+        e.currentTarget.style.scale = `1.02`;
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.border = "2px solid transparent";
+        e.currentTarget.style.color = `#fff`;
+        e.currentTarget.style.scale = `1`;
+      }}
+    >
+      {IconComponent && <IconComponent className="icon" size={50} />}
+      <div className="skill-name">{skill.name}</div>
+    </motion.div>
   );
 };
 

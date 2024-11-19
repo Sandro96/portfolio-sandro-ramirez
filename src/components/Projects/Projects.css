@@ -1,138 +1,111 @@
 .projects {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 50px 0;
 }
 
-.projects .wrapper {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 40px;
-    width: 73%;
+.projects hr {
+  border: none;
+  border-top: 1px solid #fff;
+  margin: 8px 0;
+  width: 100%;
 }
 
-.projects .wrapper .card {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-    border-radius: 8px;
-    padding: 20px;
-    background-color: var(--bg-secundary-color);
-    display: flex;
-    gap: 25px;
+.card-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
 }
 
-.projects .wrapper .card .data {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-.projects .wrapper .card img {
-    height: 240px;
-    width: 360px;
-    border-radius: 8px;
-    object-fit: cover;
+.card-content .details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.projects .wrapper .card .data .btts {
-    display: flex;
-    gap: 10px;
+.card-content .details p {
+  font-size: 1rem;
+  color: var(--text-color);
+  height: 90px;
 }
 
-.projects .wrapper .card .data .btts button {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    font-size: 13px;
+.card-content .details h4 {
+  font-size: 4rem;
 }
 
-.projects .wrapper .card .data .btts img {
-    width: 20px;
-    height: auto;
+.card-content .details h5 {
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
-.projects .wrapper .card .data .btts button {
-    position: relative;
+.card-content .details .techs ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.projects .wrapper .card .data .btts button:hover img {
-    filter: invert(1);
+.card-content .details .techs ul li {
+  font-size: 1rem;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.projects .wrapper .card .data .techs .list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+.card-image img {
+  width: 100%;
+  height: 400px;
+  width: auto;
+  object-fit: cover;  box-shadow: 0 0 5px #000;
 }
 
-.projects .wrapper .card .data .techs .list .item {
-    font-weight: 600;
-    color: #fff;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 20px;
-    font-weight: 500;
+.navigation {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  gap: 20px;
 }
 
-.projects .wrapper .card .data .techs .list .item img {
-    width: 20px;
-    height: 20px;
-}
-
-/* Media queries */
+/* Media Queries */
 
 @media screen and (max-width: 1300px) {
-    .projects .wrapper{
-        width: 100%;
-    }
-    .projects .wrapper .card img {
-        width: 320px;
-    }
-    .projects .wrapper .card .data .btts button {
-        font-size: 12px;
-    }
-    
-    .projects .wrapper .card .data .btts img {
-        width: 18px;
-    }
-    .projects button{
-        padding: 0.4rem 1rem;
-    }
+  .projects .card-wrapper {
+    flex-direction: column;
+  }
+  .projects .buttons a{
+    text-align: -webkit-center;
+  }
+  .navigation {
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .projects .wrapper .card{
-        flex-direction: column;
-        align-items: center;
-    }
-    .projects .wrapper .card img {
-        width: 360px;
-    }
-    .projects .wrapper .data{
-        align-items: center;
-        text-align: center;
-        gap: 25px;
-    }
-    .projects .wrapper .card .data .btts button {
-        font-size: 14px;
-    }
-    
-    .projects .wrapper .card .data .btts img {
-        width: 20px;
-    }
+  .card-image img {
+    height: auto;
+    width: 460px;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .projects .wrapper .card{
-        padding: 10px;
-    }
-    .projects .wrapper .card img {
-        width: 310px;
-    }
-    .projects .wrapper .card .data .techs .list {
-        justify-content: center;
-    }
+  .card-image img {
+    width: 350px;
+  }
+  .card-content .details p {
+    height: 110px;
+  }
 }

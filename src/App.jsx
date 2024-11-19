@@ -1,8 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header";
-import About from "./components/About/About";
-import Skills from "./components/Skills/Skills";
+import Resume from "./components/Resume/Resume";
 import Projects from "./components/Projects/Projects";
 import Contact from "./components/Contact/Contact";
 
@@ -11,12 +10,9 @@ function App() {
     <>
       <Navbar />
       <Header />
-      <section className="components-container">
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </section>
+      <Resume />
+      <Projects />
+      <Contact />
     </>
   );
 }

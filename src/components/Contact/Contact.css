@@ -3,8 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px 0;
-    box-shadow: 0 0 10px #000;
+    background-color: var(--bg-color);
 }
 
 .contact .container {
@@ -29,7 +28,7 @@
 .contact .form .form-group .error-message {
     position: absolute;
     bottom: -20px; 
-    color: red;
+    color: var(--contrast-color);
     font-size: 12px;
 }
 
@@ -63,6 +62,12 @@
     background-color: #b80000;
     color: #fff;
 }
+@media screen and (max-width: 1300px) {
+    .contact {
+        padding: 75px 0 0 0;
+      }
+  }
+
 
 @media screen and (max-width: 480px) {
     

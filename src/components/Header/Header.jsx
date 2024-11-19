@@ -1,41 +1,129 @@
-import React from 'react';
-import './Header.css';
-import { useTranslation } from 'react-i18next';
-import linkedInIcon from '../../assets/svg/linkedIn01.svg';
-import githubIcon from '../../assets/svg/github01.svg';
-import behanceIcon from '../../assets/svg/behance01.svg';
-import whatsappIcon from '../../assets/svg/wpp01.svg';
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import "./Header.css";
+import { useTranslation } from "react-i18next";
+import {
+  AiOutlineGithub,
+  AiFillLinkedin,
+  AiFillBehanceSquare,
+} from "react-icons/ai";
+import { HiOutlineDownload } from "react-icons/hi";
+import photo from "../../assets/img/photo01.webp";
 
 const Header = () => {
-    const { t, i18n } = useTranslation('global');
-    const language = i18n.language;
+  const { t, i18n } = useTranslation("global");
+  const language = i18n.language;
 
-    const cvFilename = language === 'en' ? 'cv-sandro-ramirez-en.pdf' : 'cv-sandro-ramirez-es.pdf';
-    const cvLink = `/pdf/${cvFilename}`;
+  const cvFilename =
+    language === "en" ? "Sandro_Ramirez_CV_EN.pdf" : "Sandro_Ramirez_CV_ES.pdf";
+  const cvLink = `/pdf/${cvFilename}`;
 
-    return (
-        <header className='header container' id='home'>
-            <h1 className='title text-color'>{t('header.title')}</h1>
-            <h1 className='name unicase'>Sandro Ramirez</h1>
-            <div className='social-media'>
-                <a className='icon' href='https://www.linkedin.com/in/sandro-ramirez/' target='_blank' rel='noopener noreferrer'>
-                    <img src={linkedInIcon} alt='LinkedIn' />
-                </a>
-                <a className='icon' href='https://github.com/Sandro96' target='_blank' rel='noopener noreferrer'>
-                    <img src={githubIcon} alt='Github' />
-                </a>
-                <a className='icon' href='https://www.behance.net/sandroramirez14' target='_blank' rel='noopener noreferrer'>
-                    <img src={behanceIcon} alt='Behance' />
-                </a>
-                <a className='icon' href='https://wa.me/598094095078' target='_blank' rel='noopener noreferrer'>
-                    <img src={whatsappIcon} alt='WhatsApp' />
-                </a>
-            </div>
-            <a href={cvLink} download={`CV_Sandro_Ramirez_${language.toUpperCase()}.pdf`}>
-                <button className='download-button'>{t('header.download')}</button>
-            </a>
-        </header>
-    );
+
+  const [refTitle, inViewTitle] = useInView({ triggerOnce: false, threshold: 0.2 });
+  const [refSocial, inViewSocial] = useInView({ triggerOnce: false, threshold: 0.2 });
+  const [refButton, inViewButton] = useInView({ triggerOnce: false, threshold: 0.2 });
+  const [refImage, inViewImage] = useInView({ triggerOnce: false, threshold: 0.2 });
+
+  return (
+    <section className="header container" id="home">
+      <div className="text-side">
+        <motion.div
+          ref={refTitle}
+          initial={{ opacity: 0, y: -30 }}
+          animate={inViewTitle ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          className="titles"
+        >
+          <h4 className="title">{t("header.subTitle")}</h4>
+          <h1 className="text-color">Sandro Ramirez</h1>
+        </motion.div>
+
+        <motion.div
+          ref={refSocial}
+          initial={{ opacity: 0, x: -30 }}
+          animate={inViewSocial ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+          transition={{ duration: 0.6, ease: "easeInOut", delay: 0.2 }}
+          className="social-media"
+        >
+          <a
+            href="https://www.linkedin.com/in/sandro-ramirez/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <AiFillLinkedin />
+          </a>
+          <a
+            href="https://github.com/Sandro96"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <AiOutlineGithub />
+          </a>
+          <a
+            href="https://www.behance.net/sandroramirez14"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Behance"
+          >
+            <AiFillBehanceSquare />
+          </a>
+        </motion.div>
+
+        <motion.a
+          ref={refButton}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inViewButton ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, ease: "easeInOut", delay: 0.4 }}
+          href={cvLink}
+          download={`Sandro_Ramirez_CV_${language.toUpperCase()}.pdf`}
+        >
+          <button className="fill">
+            {t("header.download")} <HiOutlineDownload />
+          </button>
+        </motion.a>
+      </div>
+
+      <div className="photo-side">
+        <LazyLoadImage
+          src={photo}
+          alt="Sandro Ramirez"
+          effect="blur"
+          className="photo"
+        />
+        <motion.svg
+          className="svg-frame"
+          fill="transparent"
+          viewBox="0 0 506 506"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <motion.circle
+            cx="253"
+            cy="253"
+            r="250"
+            stroke="#1EB091"
+            strokeWidth="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            initial={{ strokeDasharray: "24 10 0 0" }}
+            animate={{
+              strokeDasharray: ["15 120 25 25", "16 25 92 72", "4 250 22 22"],
+              rotate: [120, 360],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+          />
+        </motion.svg>
+      </div>
+    </section>
+  );
 };
 
 export default Header;

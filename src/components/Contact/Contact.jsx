@@ -4,10 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Contact.css';
 import emailjs from '@emailjs/browser';
-import linkedIn01 from '../../assets/svg/linkedIn01.svg';
-import github01 from '../../assets/svg/github01.svg';
-import behance01 from '../../assets/svg/behance01.svg';
-import wpp01 from '../../assets/svg/wpp01.svg';
+import { AiOutlineGithub , AiFillLinkedin, AiFillBehanceSquare } from "react-icons/ai";
 
 const Contact = () => {
   const { t } = useTranslation("global");
@@ -73,7 +70,7 @@ const Contact = () => {
   };
 
   return (
-    <div className='contact bg-color'>
+    <section className='contact'>
       <div className='container'>
         <h3>{t("navbar.contact")}</h3>
         <form ref={form} onSubmit={sendEmail} className='form'>
@@ -102,10 +99,15 @@ const Contact = () => {
 
         </form>
         <div className='social-media'>
-          <a className="icon" href="https://www.linkedin.com/in/sandro-ramirez/" target="_blank" rel="noopener noreferrer"><img src={linkedIn01} alt="LinkedIn" /></a>
-          <a className="icon" href="https://github.com/Sandro96" target="_blank" rel="noopener noreferrer"><img src={github01} alt="Github" /></a>
-          <a className="icon" href="https://www.behance.net/sandroramirez14" target="_blank" rel="noopener noreferrer"><img src={behance01} alt="Behance" /></a>
-          <a className="icon" href="https://wa.me/598094095078" target="_blank" rel="noopener noreferrer"><img src={wpp01} alt="WhatsApp" /></a>
+        <a href='https://www.linkedin.com/in/sandro-ramirez/' target='_blank' rel='noopener noreferrer'>
+                    <AiFillLinkedin />
+                </a>
+                <a  href='https://github.com/Sandro96' target='_blank' rel='noopener noreferrer'>
+                <AiOutlineGithub />
+                </a>
+                <a href='https://www.behance.net/sandroramirez14' target='_blank' rel='noopener noreferrer'>
+                    <AiFillBehanceSquare />
+                </a>
         </div>
       </div>
       <ToastContainer
@@ -119,7 +121,7 @@ const Contact = () => {
         draggable
         pauseOnHover />
 
-    </div>
+    </section>
   );
 };
 

@@ -1,0 +1,16 @@
+[
+  { "id": 1, "name": "React", "icon": "FaReact", "color": "#2596BE", "filter": "front" },
+  { "id": 2, "name": "Angular", "icon": "FaAngular", "color": "#D00F33", "filter": "front" },
+  { "id": 3, "name": "TypeScript", "icon": "SiTypescript", "color": "#3178c6", "filter": "front" },
+  { "id": 4, "name": "Tailwind", "icon": "SiTailwindcss", "color": "#07b6d5", "filter": "front" },
+  { "id": 5, "name": "Bootstrap", "icon": "FaBootstrap", "color": "#5e3b7f", "filter": "front" },
+
+  { "id": 6, "name": ".Net", "icon": "SiDotnet", "color": "#5027d5", "filter": "back" },
+  { "id": 7, "name": "Node", "icon": "FaNodeJs", "color": "#539d41", "filter": "back" },
+  { "id": 8, "name": "SQL Server", "icon": "SiMicrosoftsqlserver", "color": "#b41c1c", "filter": "back" },
+  { "id": 9, "name": "MongoDB", "icon": "SiMongodb", "color": "#599636", "filter": "back" },
+
+  { "id": 10, "name": "Postman", "icon": "SiPostman", "color": "#ee6d3f", "filter": "other" },
+  { "id": 11, "name": "Octopus", "icon": "SiOctopusdeploy", "color": "#398FCD", "filter": "other" },
+  { "id": 12, "name": "Team City", "icon": "SiTeamcity", "color": "#3991CD", "filter": "other" }
+]

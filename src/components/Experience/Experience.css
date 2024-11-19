@@ -1,0 +1,52 @@
+.experience {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.experience-item {
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 15px;
+    background-color: var(--bg-color);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Añadimos sombra ligera */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-item:hover {
+    transform: translateY(-5px); /* Desplazamiento sutil */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.experience-item h4,
+.experience-item h5 {
+    margin: 5px 0;
+}
+
+.experience-details {
+    margin-top: 15px;
+    border-top: 1px solid var(--primary-color);
+    padding-top: 10px;
+    max-height: 170px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.detail-item {
+    margin-bottom: 15px; /* Añade espacio entre cada detalle */
+}
+
+.experience-details::-webkit-scrollbar {
+    width: 8px;
+}
+
+.experience-details::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.experience-details::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}

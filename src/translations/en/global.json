@@ -1,20 +1,24 @@
 {
     "navbar": {
         "home": "Home",
-        "about": "About",
-        "skills": "Skills",
+        "resume": "Resume",
         "projects": "Projects",
         "contact": "Contact",
         "lng": "EN"
     },
     "header": {
-        "title": "FullStack Web Developer",
+        "title": "FullStack Web Developer",   
+        "hi": "Hi I'm",
         "download": "Download CV"
     },
-    "about": {
+    "resume": {
+        "experience": "Experience",
+        "education": "Education",
+        "skills": "Skills",
+        "about": "About me",
         "me01": "Hello! I'm ",
-        "me02": ", a FullStack Web Developer passionate about turning ideas into digital reality.",
-        "me03": "Let's create something amazing together!",
+        "me02": ". A FullStack Developer passionate about technology and creating innovative solutions.",
+        "me03": "Discover how I can contribute to your ideas",
         "personal-info": "Personal information",
         "birthday": "Birthdate",
         "phone": "Phone",

@@ -1,159 +1,84 @@
 .about {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px;
-    box-shadow: 0 0 10px #000;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.about .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+.about .personal-info{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.about .photo-side {
-    background-color: var(--bg-primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 10px solid var(--primary-color);
-    max-width: 440px;
-    max-height: 440px;
-    box-shadow: 0 0 10px #000;
+.about .info{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.about .photo-side img {
-    width: 420px;
-    height: 420px;
+.about .info span{
+  color: #999;
 }
 
-.about .text-side {
-    display: flex;
-    flex-direction: column;
-    width: 520px;
-    gap: 50px;
-}
-
-.about .text-side p {
-    font-size: 22px;
-}
-
-.about .personal-info {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    font-size: 20px;
-}
-
-.about .personal-info .data {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-}
-
-.about .personal-info .data .item {
-    display: flex;
-    justify-content: space-between;
-}
 .about .hobbies{
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.about .personal-cards {
-    display: flex;
-    justify-content: space-between;
+.about p{
+  font-size: 1.2rem;
 }
 
-.about .personal-cards .item {
-    width: 100px;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--bg-secundary-color);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    border-radius: 50%;
-    position: relative;
+.about .social-icons{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+.about .social-icons a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  font-size: 2.5rem;
+  border-radius: 50%;
+  color: var(--primary-color);
+  transition: 0.3s ease-in-out;
 }
 
-.about .personal-cards .item img {
-    height: 50px;
-    width: auto;
+.about .social-icons a:hover {
+  color: var(--text-color);
+  transform: scale(1.2);
+  box-shadow: 0 0 15px var(--primary-color);
+  background-color: var(--primary-color);
+  border: 2px solid #fff;
 }
 
 .about .tooltip {
-    position: absolute;
-    bottom: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--bg-secundary-color);
-    opacity: 0.9;
-    color: inherit;
-    padding: 5px 10px;
-    border: 2px solid;
-    border-radius: 15px;
-    z-index: 10;
-    text-align: center;
-    white-space: nowrap; 
-    font-size: 16px;
-    font-weight: 600;
-    pointer-events: none;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
+  position: absolute;
+  transform: translateY(150%);
+  background-color: var(--primary-color);
+  opacity: 0.9;
+  color: #fff;
+  padding: 5px 10px;
+  border: 2px solid;
+  border-radius: 15px;
+  z-index: 10;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 600;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  box-shadow: 0 0 15px var(--primary-color);
 }
 
-.about .personal-cards .item:hover .tooltip {
-    visibility: visible;
-}
-
-/* Media queries */
-
-@media screen and (max-width: 1300px) {
-    .about .container {
-        display: flex;
-        flex-direction: column;
-        gap: 50px;
-    } 
-    .about .about-me{
-        text-align: center;
-    }
-    .about h4{
-        text-align: center;
-    }   
-}
-
-@media screen and (max-width: 768px) {
-    .about .text-side{
-        width: 460px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .about .text-side{
-        width: 350px;
-    }
-    .about .photo-side {
-        border: 5px solid var(--primary-color);
-        max-width: 340px;
-        max-height: 340px;
-    }
-    
-    .about .photo-side img {
-        width: 340px;
-        height: 340px;
-    }
-    .about .personal-cards .item {
-        width: 75px;
-        height: 75px;
-    }
-    
-    .about .personal-cards .item img {
-        height: 35px;
-    }
+.about .social-icons a:hover .tooltip {
+  visibility: visible;
 }

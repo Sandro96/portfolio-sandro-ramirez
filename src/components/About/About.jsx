@@ -1,74 +1,126 @@
-import React from 'react';
-import './About.css';
-import { useTranslation } from 'react-i18next';
-import photo from '../../assets/img/photo01.png';
-import gamesIcon from '../../assets/img/games01.png';
-import musicIcon from '../../assets/img/music01.png';
-import moviesIcon from '../../assets/img/movies01.png';
-import sportsIcon from '../../assets/img/sports01.png';
+import React, { useState } from "react";
+import "./About.css";
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { BiSolidJoystick } from "react-icons/bi";
+import { RiMovie2Fill } from "react-icons/ri";
+import { IoIosFootball } from "react-icons/io";
+import { FaMusic } from "react-icons/fa";
 
 const About = () => {
-    const { t } = useTranslation('global');
+  const [hoveredHobby, setHoveredHobby] = useState();
+  const { t } = useTranslation("global");
 
-    const hobbies = [
-        { name: 'Games', imgSrc: gamesIcon },
-        { name: 'Music', imgSrc: musicIcon },
-        { name: 'Movies', imgSrc: moviesIcon },
-        { name: 'Sports', imgSrc: sportsIcon }
-    ];
+  // Hook para la presentación
+  const { ref: presentationRef, inView: isPresentationInView } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
 
-    const [hoveredHobby, setHoveredHobby] = React.useState(null);
+  // Hook para hobbies
+  const { ref: hobbiesRef, inView: areHobbiesInView } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
 
-    return (
-        <div className='about bg-color' id='about'>
-            <div className='container'>
-                <div className='photo-side'>
-                    <img src={photo} alt="Sandro Ramirez" />
-                </div>
-                <aside className='text-side'>
-                    <p className='about-me'>
-                        {t("about.me01")}
-                        <span className='text-color'>Sandro Ramirez</span>
-                        {t("about.me02")} <br />
-                        {t("about.me03")}
-                    </p>
-                    <div className='personal-info'>
-                        <h4>{t("about.personal-info")}</h4>
-                        <div className='data'>
-                            <div className='item'>
-                                <span className='text-color'>{t("about.birthday")}</span><span>1  Feb  1996</span>
-                            </div>
-                            <div className='item'>
-                                <span className='text-color'>{t("about.phone")}</span><span>(+598) 094 095 078</span>
-                            </div>
-                            <div className='item'>
-                                <span className='text-color'>{t("about.email")}</span><span>ramirezsandro96@gmail.com</span>
-                            </div>
-                            <div className='item'>
-                                <span className='text-color'>{t("about.location")}</span><span>Montevideo, Uruguay</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='hobbies'>
-                        <h4>Hobbies</h4>
-                        <div className='personal-cards'>
-                            {hobbies.map((hobby, index) => (
-                                <div
-                                    key={index}
-                                    className='item'
-                                    onMouseEnter={() => setHoveredHobby(hobby.name)}
-                                    onMouseLeave={() => setHoveredHobby(null)}
-                                >
-                                    <img src={hobby.imgSrc} alt={hobby.name} />
-                                    {hoveredHobby === hobby.name && <div className="tooltip">{t(`about.${hobby.name.toLowerCase()}`)}</div>}
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </aside>
-            </div>
+  return (
+    <div className="about">
+      <motion.div
+        ref={presentationRef}
+        className="presentation"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={isPresentationInView ? { opacity: 1, scale: 1 } : {}}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        <p>
+          {t("resume.me01")}
+          <span className="text-color">Sandro Ramirez</span>
+          {t("resume.me02")}
+        </p>
+      </motion.div>
+
+      <motion.div
+        ref={presentationRef}
+        className="personal-info"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={isPresentationInView ? { opacity: 1, scale: 1 } : {}}
+        transition={{ duration: 0.5, ease: "easeOut"}}
+      >
+        <h4>{t("resume.personal-info")}</h4>
+        <div className="info">
+          <p>
+            <span>{t("resume.name")}</span> Sandro Nahuel Ramirez Tokarsky
+          </p>
+          <p>
+            <span>{t("resume.age")}</span> 28 años
+          </p>
+          <p>
+            <span>{t("resume.email")}</span> ramirezsandro96@gmail.com
+          </p>
+          <p>
+            <span>{t("resume.location")}</span> Montevideo, UY
+          </p>
         </div>
-    );
+      </motion.div>
+
+      <motion.div
+        ref={hobbiesRef}
+        className="hobbies"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={areHobbiesInView ? { opacity: 1, scale: 1 } : {}}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        <h4>Hobbies</h4>
+        <div className="social-icons">
+          <a
+            href="#Games"
+            aria-label="Games"
+            onMouseEnter={() => setHoveredHobby("Games")}
+            onMouseLeave={() => setHoveredHobby(null)}
+          >
+            <BiSolidJoystick size={28} />
+            {hoveredHobby === "Games" && (
+              <div className="tooltip">{t("resume.games")}</div>
+            )}
+          </a>
+          <a
+            href="#Movie"
+            aria-label="Movies"
+            onMouseEnter={() => setHoveredHobby("Movies")}
+            onMouseLeave={() => setHoveredHobby(null)}
+          >
+            <RiMovie2Fill size={24} />
+            {hoveredHobby === "Movies" && (
+              <div className="tooltip">{t("resume.movies")}</div>
+            )}
+          </a>
+          <a
+            href="#Sports"
+            aria-label="Sports"
+            onMouseEnter={() => setHoveredHobby("Sports")}
+            onMouseLeave={() => setHoveredHobby(null)}
+          >
+            <IoIosFootball size={28} />
+            {hoveredHobby === "Sports" && (
+              <div className="tooltip">{t("resume.sports")}</div>
+            )}
+          </a>
+          <a
+            href="#music"
+            aria-label="Music"
+            onMouseEnter={() => setHoveredHobby("Music")}
+            onMouseLeave={() => setHoveredHobby(null)}
+          >
+            <FaMusic size={20} />
+            {hoveredHobby === "Music" && (
+              <div className="tooltip">{t("resume.music")}</div>
+            )}
+          </a>
+        </div>
+      </motion.div>
+    </div>
+  );
 };
 
 export default About;

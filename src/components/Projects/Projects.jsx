@@ -1,16 +1,42 @@
 import './Projects.css';
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import projects_en from '../../assets/data/projects_en.json';
-import projects_es from '../../assets/data/projects_es.json';
-import skillsData from '../../assets/data/skills.json';
-import projectsIcon01 from '/src/assets/img/projectsIcon01.png';
-import projectsIcon02 from '/src/assets/img/projectsIcon02.png';
-import projectsIcon03 from '/src/assets/img/projectsIcon03.png';
+import projects_en from '../../assets/data/projects/projects_en.json';
+import projects_es from '../../assets/data/projects/projects_es.json';
+import skillsData from '../../assets/data/skills/skills.json';
+import { AiOutlineGithub } from "react-icons/ai";
+import { TfiWorld } from "react-icons/tfi";
+import { MdDesignServices } from "react-icons/md";
+import {
+  FaReact, FaAngular, FaBootstrap, FaNodeJs,
+} from "react-icons/fa";
+import {
+  SiTypescript, SiTailwindcss, SiDotnet, SiMicrosoftsqlserver,
+  SiMongodb, SiPostman, SiOctopusdeploy, SiTeamcity
+} from "react-icons/si";
+
+// Mapa de iconos para habilidades
+const iconMap = {
+  FaReact: FaReact,
+  FaAngular: FaAngular,
+  SiTypescript: SiTypescript,
+  SiTailwindcss: SiTailwindcss,
+  FaBootstrap: FaBootstrap,
+  SiDotnet: SiDotnet,
+  FaNodeJs: FaNodeJs,
+  SiMicrosoftsqlserver: SiMicrosoftsqlserver,
+  SiMongodb: SiMongodb,
+  SiPostman: SiPostman,
+  SiOctopusdeploy: SiOctopusdeploy,
+  SiTeamcity: SiTeamcity,
+};
 
 const Projects = () => {
   const { t, i18n } = useTranslation("global");
   const projects = i18n.language === 'en' ? projects_en : projects_es;
+
+  // Estado para controlar el índice del proyecto actual
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   // Función para mapear las habilidades a los proyectos
   const mapSkillsToProjects = (projects, skills) => {
@@ -25,7 +51,19 @@ const Projects = () => {
   // Procesamos los proyectos con las habilidades
   const projectsWithSkills = mapSkillsToProjects(projects, skillsData);
 
-  // Función para renderizar los botones
+  // Navegar entre proyectos
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % projectsWithSkills.length);
+  };
+
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + projectsWithSkills.length) % projectsWithSkills.length);
+  };
+
+  // Proyecto actual
+  const currentProject = projectsWithSkills[currentIndex];
+
+  // Renderizar los botones
   const renderButtons = (project) => {
     const buttonTranslations = {
       1: ["projects.code", "projects.view", "projects.design"],
@@ -38,19 +76,19 @@ const Projects = () => {
     };
 
     const buttonIcons = {
-      "projects.code": projectsIcon01,
-      "projects.view": projectsIcon02,
-      "projects.design": projectsIcon03
+      "projects.code": <AiOutlineGithub />,
+      "projects.view": <TfiWorld />,
+      "projects.design": <MdDesignServices />
     };
 
     return buttonTranslations[project.buttonFlag].map((translationKey, index) => {
       const icon = buttonIcons[translationKey];
-      const url = project.urls[translationKey.split('.')[1]]; // Obtener la URL correspondiente
+      const url = project.urls[translationKey.split('.')[1]];
 
       return (
         <a key={index} href={url} target="_blank" rel="noopener noreferrer">
           <button>
-            {icon && <img src={icon} alt="Icon" />} 
+            {icon}
             {t(translationKey)}
           </button>
         </a>
@@ -59,33 +97,38 @@ const Projects = () => {
   };
 
   return (
-    <div className='projects container'>
-      <h3>{t("navbar.projects")}</h3>
-      <div className="wrapper">
-        {projectsWithSkills.map((project, index) => (
-          <div className="card" key={index}>
-            <img src={project.img} alt={project.name} />
-            <div className='data'>
-              <h4>{project.name}</h4>
-              <p>{project.description}</p>
-              <div className="btts">
-                {renderButtons(project)}
-              </div>
-              <div className="techs">
-                <div className="list">
-                  {project.techs.map((tech, techIndex) => (
-                    <div className="item" key={techIndex}>
-                      <img src={tech.icon} alt={tech.name} />
-                      {tech.name}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+    <section className='projects container'>
+    <div className="card-wrapper">
+      <div className="card-content">
+        <div className="details">
+          <h4>0{currentProject.id}</h4>
+          <h5>{currentProject.name}</h5>
+          <p>{currentProject.description}</p>
+          <div className="techs">
+            <ul>
+              {currentProject.techs.map((tech, techIndex) => (
+                <li key={techIndex}>
+                  {tech.icon && React.createElement(iconMap[tech.icon], { size: 20 })}
+                  {tech.name}
+                </li>
+              ))}
+            </ul>
           </div>
-        ))}
+          <hr/>
+        </div>
+        <div className="buttons">
+          {renderButtons(currentProject)}
+        </div>
+      </div>
+      <div className="card-image">
+        <img src={currentProject.img} alt={currentProject.name} />
       </div>
     </div>
+    <div className="navigation">
+      <button onClick={handlePrevious}>{"<"}</button>
+      <button onClick={handleNext}>{">"}</button>
+    </div>
+  </section>  
   );
 };
 

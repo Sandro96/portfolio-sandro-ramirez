@@ -1,0 +1,92 @@
+.education {
+    display: flex;
+    flex-direction: column;
+    max-height: max-content;
+    padding: 0 10px;
+}
+.education-container{
+    
+    padding: 20px 5px;
+    max-height: 560px;
+    overflow-y: auto;
+}
+
+.education-group {
+    margin-bottom: 30px;
+}
+
+.education-type {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.education-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+}
+
+.education-item {
+    width: 238px;
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 160px;
+}
+
+.education-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.education-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.education-institution {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.education-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  font-size: 1.8rem;
+  border-radius: 50%;
+  color: var(--primary-color);
+  transition: 0.3s ease-in-out;
+  padding: 0.3rem;
+  width: 30px;
+  height: 30px;
+}
+
+.education-link:hover {
+    color: var(--text-color);
+    transform: scale(1.1);
+    box-shadow: 0 0 25px var(--primary-color);
+    background-color: var(--primary-color);
+    border: 2px solid #fff;
+}
+
+/* Responsividad */
+@media screen and (max-width: 1300px) {
+    .education-item {
+        width: 190px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .education-item {
+        flex: 1 1 100%; 
+        max-width: 100%;
+    }
+}
