@@ -25,9 +25,7 @@ const Contact = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const API_URL = process.env.NODE_ENV === 'production'
-    ? 'https://api-send-mail-sigma.vercel.app/api/send-email' 
-    : 'http://localhost:3000/api/send-email'; 
+const API_URL = 'https://api-send-mail-rho.vercel.app/api/send-email';
 
   const sendEmail = async (e) => {
     e.preventDefault();
