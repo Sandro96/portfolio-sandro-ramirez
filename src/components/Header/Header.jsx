@@ -21,11 +21,22 @@ const Header = () => {
     language === "en" ? "Sandro_Ramirez_CV_EN.pdf" : "Sandro_Ramirez_CV_ES.pdf";
   const cvLink = `/pdf/${cvFilename}`;
 
-
-  const [refTitle, inViewTitle] = useInView({ triggerOnce: false, threshold: 0.2 });
-  const [refSocial, inViewSocial] = useInView({ triggerOnce: false, threshold: 0.2 });
-  const [refButton, inViewButton] = useInView({ triggerOnce: false, threshold: 0.2 });
-  const [refImage, inViewImage] = useInView({ triggerOnce: false, threshold: 0.2 });
+  const [refTitle, inViewTitle] = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+  const [refSocial, inViewSocial] = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+  const [refButton, inViewButton] = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+  const [refImage, inViewImage] = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
 
   return (
     <section className="header container" id="home">
@@ -37,7 +48,8 @@ const Header = () => {
           transition={{ duration: 0.6, ease: "easeInOut" }}
           className="titles"
         >
-          <h4 className="title">{t("header.subTitle")}</h4>
+          <h2 className="title">{t("header.subTitle")}</h2>{" "}
+          {/* Cambiado de h4 a h2 */}
           <h1 className="text-color">Sandro Ramirez</h1>
         </motion.div>
 

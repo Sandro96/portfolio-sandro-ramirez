@@ -148,6 +148,7 @@ const Contact = () => {
             href="https://www.linkedin.com/in/sandro-ramirez/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Visitar mi perfil en LinkedIn"
           >
             <AiFillLinkedin />
           </a>
@@ -155,6 +156,7 @@ const Contact = () => {
             href="https://github.com/Sandro96"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Visitar mi perfil en GitHub"
           >
             <AiOutlineGithub />
           </a>
@@ -162,6 +164,7 @@ const Contact = () => {
             href="https://www.behance.net/sandroramirez14"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Visitar mi perfil en Behance"
           >
             <AiFillBehanceSquare />
           </a>
