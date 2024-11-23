@@ -63,7 +63,7 @@
 }
 
 .skills .filter-buttons a.active {
-  color: #fff;
+  color: var(--bg-color-v);
 }
 
 .skills .filter-buttons span {
@@ -95,17 +95,22 @@
 }
 
 @media screen and (max-width: 768px) {
-  .skills{  
+  .skills {
     max-height: 560px;
     overflow-y: auto;
     place-content: baseline;
   }
   .skills .wrapper {
     grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
   }
   .skills .card {
     width: 80%;
   }
 }
 
+@media screen and (max-width: 480px) {
+  .skills .filter-buttons {
+    display: none;
+  }
+}

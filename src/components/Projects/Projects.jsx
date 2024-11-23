@@ -15,7 +15,6 @@ import {
   SiMongodb, SiPostman, SiOctopusdeploy, SiTeamcity
 } from "react-icons/si";
 
-// Mapa de iconos para habilidades
 const iconMap = {
   FaReact: FaReact,
   FaAngular: FaAngular,
@@ -34,11 +33,8 @@ const iconMap = {
 const Projects = () => {
   const { t, i18n } = useTranslation("global");
   const projects = i18n.language === 'en' ? projects_en : projects_es;
-
-  // Estado para controlar el índice del proyecto actual
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Función para mapear las habilidades a los proyectos
   const mapSkillsToProjects = (projects, skills) => {
     return projects.map(project => {
       const techs = project.techs.map(techId => {
@@ -48,10 +44,8 @@ const Projects = () => {
     });
   };
 
-  // Procesamos los proyectos con las habilidades
   const projectsWithSkills = mapSkillsToProjects(projects, skillsData);
 
-  // Navegar entre proyectos
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % projectsWithSkills.length);
   };
@@ -60,10 +54,8 @@ const Projects = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + projectsWithSkills.length) % projectsWithSkills.length);
   };
 
-  // Proyecto actual
   const currentProject = projectsWithSkills[currentIndex];
 
-  // Renderizar los botones
   const renderButtons = (project) => {
     const buttonTranslations = {
       1: ["projects.code", "projects.view", "projects.design"],

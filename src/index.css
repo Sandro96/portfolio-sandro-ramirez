@@ -18,7 +18,7 @@ body {
 }
 
 :root {
-  --primary-color: #1eb091;
+  --primary-color: #22c8a4;
   --contrast-color: #e14f6e;
   --bg-color: #131313;
   --bg-color-v: #1c1c22;
@@ -125,14 +125,14 @@ button {
 button:hover {
   background-color: var(--primary-color);
   border-color: #fff;
-  color: #fff;
+  color: var(--bg-color-v);;
   box-shadow: 0 0 25px var(--primary-color);
   scale: 1.05;
 }
 
 .active-button {
   background-color: var(--primary-color);
-  color: #fff;
+  color: var(--bg-color-v);
   box-shadow: 0 0 5px var(--primary-color);
 }
 
@@ -172,7 +172,7 @@ button:focus-visible {
 }
 
 .social-media a:hover {
-  color: var(--text-color);
+  color: var(--bg-color-v);
   transform: scale(1.1);
   box-shadow: 0 0 25px var(--primary-color);
   background-color: var(--primary-color);

@@ -52,7 +52,7 @@
 }
 
 .about .social-icons a:hover {
-  color: var(--text-color);
+  color: var(--bg-color-v);
   transform: scale(1.2);
   box-shadow: 0 0 15px var(--primary-color);
   background-color: var(--primary-color);
@@ -64,9 +64,9 @@
   transform: translateY(150%);
   background-color: var(--primary-color);
   opacity: 0.9;
-  color: #fff;
+  color: var(--bg-color-v);
   padding: 5px 10px;
-  border: 2px solid;
+  border: 2px solid #fff;
   border-radius: 15px;
   z-index: 10;
   text-align: center;

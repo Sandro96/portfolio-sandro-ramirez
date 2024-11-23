@@ -3,8 +3,7 @@ import { useTranslation } from "react-i18next";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Contact.css';
-import emailjs from '@emailjs/browser';
-import { AiOutlineGithub , AiFillLinkedin, AiFillBehanceSquare } from "react-icons/ai";
+import { AiOutlineGithub, AiFillLinkedin, AiFillBehanceSquare } from "react-icons/ai";
 
 const Contact = () => {
   const { t } = useTranslation("global");
@@ -17,12 +16,18 @@ const Contact = () => {
     requiredFields: "contact.requiredFields",
     invalidEmail: "contact.invalidEmail",
     formSubmitted: "contact.formSubmitted",
-    formError: "contact.formError"
+    formError: "contact.formError",
+    message: "contact.message",
+    sending: "contact.sending",
   };
 
   const form = useRef();
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const API_URL = process.env.NODE_ENV === 'production'
+    ? 'https://api-send-mail-sigma.vercel.app/api/send-email' 
+    : 'http://localhost:3000/api/send-email'; 
 
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -49,17 +54,26 @@ const Contact = () => {
 
     if (Object.keys(errors).length === 0) {
       try {
-        await emailjs.sendForm(
-          import.meta.env.VITE_SERVICE_ID,
-          import.meta.env.VITE_TEMPLATE_ID,
-          form.current,
-          import.meta.env.VITE_PUBLIC_KEY
-        );
-        toast.success(t(contact.formSubmitted));
-        form.current.reset();
-        setErrors({});
+        const response = await fetch(API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          toast.success(result.message); 
+          form.current.reset(); 
+          setErrors({});
+        } else {
+          const errorData = await response.json();
+          toast.error(errorData.message || t(contact.formError)); 
+        }
       } catch (error) {
-        toast.error(t(contact.formError));
+        console.error("Error al enviar el correo:", error);
+        toast.error(t(contact.formError)); 
       } finally {
         setIsSubmitting(false);
       }
@@ -91,23 +105,25 @@ const Contact = () => {
           </div>
 
           <div className="form-group">
-            <textarea name='message' className='textarea' cols="30" rows="10" />
+            <textarea name='message' className='textarea' cols="30" rows="10" placeholder={t(contact.message)} />
             {errors.message && <p className="error-message">{errors.message}</p>}
           </div>
 
-          <button type='submit' disabled={isSubmitting}>{isSubmitting ? t("contact.sending") : t(contact.send)}</button>
+          <button type='submit' disabled={isSubmitting}>
+            {isSubmitting ? t(contact.sending) : t(contact.send)}
+          </button>
 
         </form>
         <div className='social-media'>
-        <a href='https://www.linkedin.com/in/sandro-ramirez/' target='_blank' rel='noopener noreferrer'>
-                    <AiFillLinkedin />
-                </a>
-                <a  href='https://github.com/Sandro96' target='_blank' rel='noopener noreferrer'>
-                <AiOutlineGithub />
-                </a>
-                <a href='https://www.behance.net/sandroramirez14' target='_blank' rel='noopener noreferrer'>
-                    <AiFillBehanceSquare />
-                </a>
+          <a href='https://www.linkedin.com/in/sandro-ramirez/' target='_blank' rel='noopener noreferrer'>
+            <AiFillLinkedin />
+          </a>
+          <a href='https://github.com/Sandro96' target='_blank' rel='noopener noreferrer'>
+            <AiOutlineGithub />
+          </a>
+          <a href='https://www.behance.net/sandroramirez14' target='_blank' rel='noopener noreferrer'>
+            <AiFillBehanceSquare />
+          </a>
         </div>
       </div>
       <ToastContainer
@@ -119,8 +135,8 @@ const Contact = () => {
         rtl={false}
         pauseOnFocusLoss
         draggable
-        pauseOnHover />
-
+        pauseOnHover
+      />
     </section>
   );
 };

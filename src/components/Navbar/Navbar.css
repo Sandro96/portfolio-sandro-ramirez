@@ -150,4 +150,7 @@
 }
 
 @media screen and (max-width: 480px) {
+  .mobile-nav-content {
+    width: 330px;
+  }
 }

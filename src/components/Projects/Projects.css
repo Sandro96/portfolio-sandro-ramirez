@@ -80,6 +80,11 @@
   gap: 20px;
 }
 
+.projects .card-content .buttons{
+  display: flex;
+  gap: 20px;
+}
+
 /* Media Queries */
 
 @media screen and (max-width: 1300px) {
@@ -90,6 +95,9 @@
     text-align: -webkit-center;
   }
   .navigation {
+    justify-content: center;
+  }
+  .projects .card-content .buttons{
     justify-content: center;
   }
 }

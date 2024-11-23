@@ -73,8 +73,7 @@ const About = () => {
       >
         <h4>Hobbies</h4>
         <div className="social-icons">
-          <a
-            href="#Games"
+          <div
             aria-label="Games"
             onMouseEnter={() => setHoveredHobby("Games")}
             onMouseLeave={() => setHoveredHobby(null)}
@@ -83,9 +82,8 @@ const About = () => {
             {hoveredHobby === "Games" && (
               <div className="tooltip">{t("resume.games")}</div>
             )}
-          </a>
-          <a
-            href="#Movie"
+          </div>
+          <div
             aria-label="Movies"
             onMouseEnter={() => setHoveredHobby("Movies")}
             onMouseLeave={() => setHoveredHobby(null)}
@@ -94,9 +92,8 @@ const About = () => {
             {hoveredHobby === "Movies" && (
               <div className="tooltip">{t("resume.movies")}</div>
             )}
-          </a>
-          <a
-            href="#Sports"
+          </div>
+          <div
             aria-label="Sports"
             onMouseEnter={() => setHoveredHobby("Sports")}
             onMouseLeave={() => setHoveredHobby(null)}
@@ -105,9 +102,8 @@ const About = () => {
             {hoveredHobby === "Sports" && (
               <div className="tooltip">{t("resume.sports")}</div>
             )}
-          </a>
-          <a
-            href="#music"
+          </div>
+          <div
             aria-label="Music"
             onMouseEnter={() => setHoveredHobby("Music")}
             onMouseLeave={() => setHoveredHobby(null)}
@@ -116,7 +112,7 @@ const About = () => {
             {hoveredHobby === "Music" && (
               <div className="tooltip">{t("resume.music")}</div>
             )}
-          </a>
+          </div>
         </div>
       </motion.div>
     </div>
