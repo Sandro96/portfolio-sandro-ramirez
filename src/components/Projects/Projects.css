@@ -37,7 +37,6 @@
 
 .card-content .details p {
   font-size: 1rem;
-  color: var(--text-color);
   height: 90px;
 }
 
@@ -55,7 +54,7 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 20px;
 }
 
 .card-content .details .techs ul li {
@@ -63,7 +62,7 @@
   color: var(--primary-color);
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 
 .card-image img {
@@ -84,6 +83,30 @@
   display: flex;
   gap: 20px;
 }
+
+.projects .indicators {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 20%;
+  margin: 0 auto;
+}
+
+.projects .indicator {
+  width: 10px;
+  height: 10px;
+  background-color: var(--primary-color);
+  opacity: 0.4;
+  position: relative;
+}
+
+.projects .indicator.active {
+  width: 100%;
+  opacity: 1;
+}
+
 
 /* Media Queries */
 

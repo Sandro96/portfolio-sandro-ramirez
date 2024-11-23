@@ -31,6 +31,7 @@ const Navbar = () => {
           spy
           smooth
           duration={800}
+          href="#home"
           onClick={() => setShowNav(false)}
           className="text-white link"
         >
@@ -46,10 +47,11 @@ const Navbar = () => {
               spy
               smooth
               duration={800}
+              href={`#${section}`}
               className={`text-white link ${
                 activeSection === section ? "active" : ""
               }`}
-              onSetActive={() => setActiveSection(section)} 
+              onSetActive={() => setActiveSection(section)}
               onClick={() => setShowNav(false)}
             >
               {t(`navbar.${section}`)}
@@ -67,24 +69,23 @@ const Navbar = () => {
         <div className="mobile-nav">
           <div className="mobile-nav-content-wrapper">
             <div className="mobile-nav-content">
-              {["home", "resume", "projects", "contact"].map(
-                (section) => (
-                  <Link
-                    key={section}
-                    to={section}
-                    spy
-                    smooth
-                    duration={800}
-                    className={`text-white ${
-                      activeSection === section ? "active" : ""
-                    }`}
-                    onSetActive={() => setActiveSection(section)} 
-                    onClick={() => setShowNav(false)}
-                  >
-                    {t(`navbar.${section}`)}
-                  </Link>
-                )
-              )}
+              {["home", "resume", "projects", "contact"].map((section) => (
+                <Link
+                  key={section}
+                  to={section}
+                  spy
+                  smooth
+                  duration={800}
+                  href={`#${section}`}
+                  className={`text-white ${
+                    activeSection === section ? "active" : ""
+                  }`}
+                  onSetActive={() => setActiveSection(section)}
+                  onClick={() => setShowNav(false)}
+                >
+                  {t(`navbar.${section}`)}
+                </Link>
+              ))}
             </div>
           </div>
         </div>

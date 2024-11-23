@@ -39,7 +39,6 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0.4px;
@@ -54,12 +53,12 @@
 }
 
 .contact .Toastify__toast--success {
-    background-color: var(--primary-color-variante);
+    background-color: var(--primary-color);
     color: #fff;
 }
 
 .contact .Toastify__toast--error {
-    background-color: #b80000;
+    background-color: var(--contrast-color);
     color: #fff;
 }
 @media screen and (max-width: 1300px) {
