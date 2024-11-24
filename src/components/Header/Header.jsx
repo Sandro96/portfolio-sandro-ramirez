@@ -49,7 +49,6 @@ const Header = () => {
           className="titles"
         >
           <h2 className="title">{t("header.subTitle")}</h2>{" "}
-          {/* Cambiado de h4 a h2 */}
           <h1 className="text-color">Sandro Ramirez</h1>
         </motion.div>
 
