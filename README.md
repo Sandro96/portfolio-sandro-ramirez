@@ -17,14 +17,7 @@
 ## Características
 - 📱 **Responsive:** Diseño adaptable para cualquier dispositivo.
 - 🚀 **Proyectos destacados:** Cada proyecto incluye una breve descripción, tecnologías utilizadas y enlaces relevantes.
-
----
-
-## Optimización máxima
-Este portafolio ha sido optimizado al máximo para obtener un excelente rendimiento, accesibilidad, y buenas prácticas según LightHouse:
-
-<img src="https://i.imgur.com/DUyoIf7.png" alt="LightHouse Scores: Performance 99, Accessibility 98, Best Practices 100, SEO 100" width="400">
-
+- Este portafolio ha sido optimizado al máximo para obtener un excelente rendimiento, accesibilidad, y buenas prácticas SEO
 
 ---
 
