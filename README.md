@@ -7,9 +7,8 @@
 ---
 
 ## Tecnologías utilizadas
-- **Frontend:** React, Node.js
-- **Backend:** Node.js (en algunos proyectos)
-- **Estilización:** CSS personalizado
+- **Frontend:** React.
+- **Backend:** Node.js
 - **Otros:** Vite para la configuración del entorno de desarrollo
 
 ---
