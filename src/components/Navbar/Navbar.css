@@ -55,6 +55,11 @@
 }
 
 @media screen and (max-width: 1300px) {
+
+  .navbar .container h2{
+    font-size: 1.7rem;
+  }
+
   .navbar .brand {
     display: none;
   }
@@ -63,7 +68,7 @@
     justify-content: center;
   }
   .navbar .links {
-    gap: 40px;
+    gap: 25px;
   }
 }
 

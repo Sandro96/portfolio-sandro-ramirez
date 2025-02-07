@@ -1,19 +1,63 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import "./Navbar.css";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-scroll";
+import LanguageToggle from "./LanguageToggle";
+import { debounce } from "./utils/debounce";
+
+const NavLink = memo(({ section, activeSection, setActiveSection, setShowNav, t }) => {
+  const handleClick = debounce(() => {
+    setShowNav(false);
+  }, 300);
+
+  return (
+    <Link
+      to={section}
+      spy
+      smooth
+      duration={800}
+      href={`#${section}`}
+      className={`text-white link ${activeSection === section ? "active" : ""}`}
+      onSetActive={() => setActiveSection(section)}
+      onClick={handleClick}
+    >
+      {t(`navbar.${section}`)}
+    </Link>
+  );
+});
+
+const MobileMenu = memo(({ showNav, activeSection, setActiveSection, setShowNav, t }) => (
+  <div className="mobile-nav">
+    <div className="mobile-nav-content-wrapper">
+      <div className="mobile-nav-content">
+        {["home", "resume", "projects", "contact"].map((section) => (
+          <NavLink
+            key={section}
+            section={section}
+            activeSection={activeSection}
+            setActiveSection={setActiveSection}
+            setShowNav={setShowNav}
+            t={t}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+));
 
 const Navbar = () => {
   const [t, i18n] = useTranslation("global");
-  const [language, setLanguage] = useState(i18n.language);
   const [showNav, setShowNav] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-  const toggleLanguage = () => {
-    const newLang = language === "en" ? "es" : "en";
-    i18n.changeLanguage(newLang);
-    setLanguage(newLang);
-  };
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("language") || "es";
+    i18n.changeLanguage(savedLanguage);
+  }, [i18n]);
+
+  const toggleNav = debounce(() => {
+    setShowNav((prev) => !prev);
+  }, 300);
 
   useEffect(() => {
     if (showNav) {
@@ -41,54 +85,32 @@ const Navbar = () => {
         </Link>
         <div className="links">
           {["home", "resume", "projects", "contact"].map((section) => (
-            <Link
+            <NavLink
               key={section}
-              to={section}
-              spy
-              smooth
-              duration={800}
-              href={`#${section}`}
-              className={`text-white link ${
-                activeSection === section ? "active" : ""
-              }`}
-              onSetActive={() => setActiveSection(section)}
-              onClick={() => setShowNav(false)}
-            >
-              {t(`navbar.${section}`)}
-            </Link>
+              section={section}
+              activeSection={activeSection}
+              setActiveSection={setActiveSection}
+              setShowNav={setShowNav}
+              t={t}
+            />
           ))}
+          <LanguageToggle />
         </div>
         <button
           className="text-white hamburger-menu"
-          onClick={() => setShowNav(!showNav)}
+          onClick={toggleNav}
         >
           ☰
         </button>
       </div>
       {showNav && (
-        <div className="mobile-nav">
-          <div className="mobile-nav-content-wrapper">
-            <div className="mobile-nav-content">
-              {["home", "resume", "projects", "contact"].map((section) => (
-                <Link
-                  key={section}
-                  to={section}
-                  spy
-                  smooth
-                  duration={800}
-                  href={`#${section}`}
-                  className={`text-white ${
-                    activeSection === section ? "active" : ""
-                  }`}
-                  onSetActive={() => setActiveSection(section)}
-                  onClick={() => setShowNav(false)}
-                >
-                  {t(`navbar.${section}`)}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
+        <MobileMenu
+          showNav={showNav}
+          activeSection={activeSection}
+          setActiveSection={setActiveSection}
+          setShowNav={setShowNav}
+          t={t}
+        />
       )}
     </nav>
   );

@@ -1,6 +1,6 @@
 [
     {
-        "id": 3,
+        "id": 1,
         "customer": "Cliente: Baufest",
         "description": "Desarrollo de una plataforma de apuestas deportivas interna para Baufest durante el Mundial de Fútbol de Qatar 2022. Utilizando .NET para la lógica de negocio y SQL Server para gestionar los datos de usuarios, apuestas y resultados en tiempo real, la aplicación permitió a los empleados hacer predicciones y participar en apuestas amistosas. Con Blazor como framework frontend, diseñé una interfaz interactiva y dinámica que facilitaba una experiencia fluida y dinamica, optimizando la interacción de los usuarios con las apuestas y el seguimiento en vivo de los resultados.",
         "duration": "Duración: 3 meses"
@@ -10,11 +10,5 @@
         "customer": "Cliente: D&C Logistics",
         "description": "Realicé soporte y mejoras en el sistema interno de una empresa chilena de logística, desarrollando funcionalidades y optimizando flujos de trabajo para incrementar la eficiencia operativa. Mi labor incluyó la creación y administración de tablas con datos de logística y su implementación en el sistema. En el frontend, trabajé con Angular y Bootstrap para construir componentes responsivos y formularios interactivos, facilitando la gestión de órdenes y el seguimiento de envíos de manera intuitiva. En el backend, utilicé ASP.NET Core bajo los principios de Solid y Clean Architecture para garantizar una estructura robusta y mantenible, desarrollando servicios RESTful integrados con el frontend y otros sistemas. Mediante SQL Server, diseñé consultas y procedimientos almacenados optimizados para un acceso rápido a los datos. Además, seguí un sistema de repositorios para la organización del código y establecí un pipeline de integración y despliegue continuo con Git, TeamCity, y Octopus, asegurando una entrega fluida y minimizando errores en producción. Postman fue esencial en la fase de pruebas, garantizando la calidad y rendimiento de los servicios REST implementados.",
         "duration": "Duración: 1 año y 4 meses"
-    },
-    {
-        "id": 1,
-        "customer": "Cliente: VIVO",
-        "description": "Desarrollo de una landing page para la promoción de la app de NBA VIVO, con un enfoque en conversión y captación de usuarios. La interfaz fue desarrollada con Vue.js, aprovechando sus capacidades para crear una experiencia visual dinámica e interactiva que incorporaba animaciones y transiciones fluidas, lo cual aumentaba la atracción visual del sitio. La estilización avanzada y modular fue realizada con Sass, optimizando el diseño responsivo y asegurando la coherencia de la identidad de marca en diferentes dispositivos y resoluciones.",
-        "duration": "Duración: 3 meses"
     }
 ]

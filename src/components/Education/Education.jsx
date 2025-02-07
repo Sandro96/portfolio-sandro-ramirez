@@ -4,10 +4,13 @@ import { useTranslation } from "react-i18next";
 import { PiCertificateFill } from "react-icons/pi";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import educationData from "../../assets/data/education/education_es.json";
+import educationData_es from "../../assets/data/education/education_es.json";
+import educationData_en from "../../assets/data/education/education_en.json";
 
 const Education = () => {
-  const { t } = useTranslation("global");
+  const { t, i18n } = useTranslation("global");
+
+  const educationData = i18n.language === "es" ? educationData_es : educationData_en;
 
   const groupedEducation = educationData.reduce((acc, current) => {
     if (!acc[current.type]) {

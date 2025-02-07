@@ -18,7 +18,7 @@ const Header = () => {
   const language = i18n.language;
 
   const cvFilename =
-    language === "en" ? "Sandro_Ramirez_CV_EN.pdf" : "Sandro_Ramirez_CV_ES.pdf";
+    language === "en" ? "SandroRamirez_CV_EN.pdf" : "SandroRamirez_CV_ES.pdf";
   const cvLink = `/pdf/${cvFilename}`;
 
   const [refTitle, inViewTitle] = useInView({
@@ -48,7 +48,7 @@ const Header = () => {
           transition={{ duration: 0.6, ease: "easeInOut" }}
           className="titles"
         >
-          <h2 className="title">{t("header.subTitle")}</h2>{" "}
+          <h2 className="title">{t("header.subTitle")}</h2>
           <h1 className="text-color">Sandro Ramirez</h1>
         </motion.div>
 

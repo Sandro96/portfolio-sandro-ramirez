@@ -1,0 +1,52 @@
+[
+    {
+        "id": 8,
+        "type": "Courses",
+        "name": "ASP.NET Core - Solid and Clean Architecture",
+        "institution": "Udemy",
+        "url": "https://www.ude.my/UC-f040614d-ab68-4f2a-bff2-8780bf27df54"
+    },
+    {
+        "id": 7,
+        "type": "Courses",
+        "name": "Máster en SQL Server: Desde Cero a Nivel Profesional",
+        "institution": "Udemy"
+    },
+    {
+        "id": 6,
+        "type": "Courses",
+        "name": "Angular: De cero a experto",
+        "institution": "Udemy"
+    },
+    {
+        "id": 5,
+        "type": "Courses",
+        "name": "User Experience (UX) Design",
+        "institution": "Google",
+        "url": "https://www.coursera.org/account/accomplishments/verify/9GJL499D9UEA"
+    },
+    {
+        "id": 4,
+        "type": "Courses",
+        "name": "Jóvenes a Programar Python",
+        "institution": "Plan Ceibal"
+    },
+    {
+        "id": 3,
+        "type": "Courses",
+        "name": "Jóvenes a Programar .NET",
+        "institution": "Plan Ceibal"
+    },
+    {
+        "id": 2,
+        "type": "Bootcamps",
+        "name": "Bootcamp Java & React",
+        "institution": "Baufest"
+    },
+    {
+        "id": 1,
+        "type": "Education",
+        "name": "High School Diploma: Physical-Mathematical Diversification",
+        "institution": "Liceo N°43"
+    }
+]

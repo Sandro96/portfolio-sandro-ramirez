@@ -3,12 +3,17 @@ import "./Experience.css";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import experienceData from "../../assets/data/experience/experience_es.json";
-import detailsData from "../../assets/data/detailsExp/detailsExp_es.json";
+import experienceData_es from "../../assets/data/experience/experience_es.json";
+import experienceData_en from "../../assets/data/experience/experience_en.json";
+import detailsData_es from "../../assets/data/detailsExp/detailsExp_es.json";
+import detailsData_en from "../../assets/data/detailsExp/detailsExp_en.json";
 
 const Experience = () => {
-  const { t } = useTranslation("global");
+  const { t, i18n } = useTranslation("global");
   const [selectedDetailId, setSelectedDetailId] = useState(null);
+
+  const experienceData = i18n.language === "es" ? experienceData_es : experienceData_en;
+  const detailsData = i18n.language === "es" ? detailsData_es : detailsData_en;
 
   const handleShowDetails = (id) => {
     setSelectedDetailId((prevId) => (prevId === id ? null : id));
@@ -22,13 +27,15 @@ const Experience = () => {
           exp={exp}
           selectedDetailId={selectedDetailId}
           onShowDetails={handleShowDetails}
+          detailsData={detailsData}
+          t={t} 
         />
       ))}
     </div>
   );
 };
 
-const ExperienceItem = memo(({ exp, selectedDetailId, onShowDetails }) => {
+const ExperienceItem = memo(({ exp, selectedDetailId, onShowDetails, detailsData, t }) => {
   const isSelected = selectedDetailId === exp.id;
   const { ref, inView } = useInView({
     triggerOnce: false, 
@@ -47,7 +54,7 @@ const ExperienceItem = memo(({ exp, selectedDetailId, onShowDetails }) => {
       <h4>{exp.name}</h4>
       <h5 className="company-name">{exp.company}</h5>
       <button onClick={() => onShowDetails(exp.id)}>
-        {isSelected ? "Ocultar" : "Ver más"}
+        {isSelected ? t("resume.hide") : t("resume.show")} 
       </button>
       {isSelected && (
         <div className="experience-details">

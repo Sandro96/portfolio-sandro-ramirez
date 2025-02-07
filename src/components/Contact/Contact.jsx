@@ -132,7 +132,6 @@ const Contact = () => {
               className="textarea"
               cols="30"
               rows="10"
-              placeholder={t(contact.message)}
             />
             {errors.message && (
               <p className="error-message">{errors.message}</p>

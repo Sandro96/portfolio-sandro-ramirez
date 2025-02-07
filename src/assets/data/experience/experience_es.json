@@ -4,13 +4,6 @@
         "name":"Desarrollador FullStack",
         "company": "Baufest",
         "period": "Agosto 2022 - Abril 2024",
-        "details": [2, 3]
-    },
-    {
-        "id":1,
-        "name":"Desarrollador Front-End",
-        "company": "Wunderman",
-        "period": "Abril 2019 - Junio 2019",
-        "details": [1]
+        "details": [2, 1]
     }
 ]

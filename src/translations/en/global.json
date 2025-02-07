@@ -7,7 +7,7 @@
         "lng": "EN"
     },
     "header": {
-        "title": "FullStack Web Developer",   
+        "subTitle": "FullStack Developer",   
         "hi": "Hi I'm",
         "download": "Download CV"
     },
@@ -19,9 +19,14 @@
         "me01": "Hello! I'm ",
         "me02": ". A FullStack Developer passionate about technology and creating innovative solutions.",
         "me03": "Discover how I can contribute to your ideas",
+        "show": "Show",
+        "hide": "Hide",
+        "filter-all": "All",
+        "filter-other": "Other",
         "personal-info": "Personal information",
-        "birthday": "Birthdate",
-        "phone": "Phone",
+        "name": "Name",
+        "age": "Age",
+        "years": "years",
         "email": "Email",
         "location": "Location",
         "games": "Games",
@@ -35,13 +40,12 @@
         "design": "Design"
     },
     "contact": {
-        "name": "Your name",
-        "email": "Your email address",
+        "name": "Name",
+        "email": "Email",
         "subject": "Subject",
-        "message": "Your message",
         "requiredFields": "Please fill out this field.",
         "invalidEmail": "Invalid Email Address",
-        "send": "Send message",
+        "send": "Send",
         "formSubmitted": "Email sent successfully!",
         "formError": "Failed to send email. Please try again later.",
         "sending": "Sending..."

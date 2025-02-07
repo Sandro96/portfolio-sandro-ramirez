@@ -7,22 +7,21 @@ import { BiSolidJoystick } from "react-icons/bi";
 import { RiMovie2Fill } from "react-icons/ri";
 import { IoIosFootball } from "react-icons/io";
 import { FaMusic } from "react-icons/fa";
+import { calculateAge } from "./utils/helpers";
 
 const About = () => {
-  const [hoveredHobby, setHoveredHobby] = useState();
+  const [hoveredHobby, setHoveredHobby] = useState(null);
   const { t } = useTranslation("global");
-
-  // Hook para la presentación
   const { ref: presentationRef, inView: isPresentationInView } = useInView({
     triggerOnce: false,
     threshold: 0.2,
   });
-
-  // Hook para hobbies
   const { ref: hobbiesRef, inView: areHobbiesInView } = useInView({
     triggerOnce: false,
     threshold: 0.2,
   });
+  const birthDate = "1996-02-01";
+  const age = calculateAge(birthDate);
 
   return (
     <div className="about">
@@ -45,7 +44,7 @@ const About = () => {
         className="personal-info"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={isPresentationInView ? { opacity: 1, scale: 1 } : {}}
-        transition={{ duration: 0.5, ease: "easeOut"}}
+        transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <h4>{t("resume.personal-info")}</h4>
         <div className="info">
@@ -53,7 +52,7 @@ const About = () => {
             <span>{t("resume.name")}</span> Sandro Nahuel Ramirez Tokarsky
           </p>
           <p>
-            <span>{t("resume.age")}</span> 28 años
+            <span>{t("resume.age")}</span> {age} {t("resume.years")}
           </p>
           <p>
             <span>{t("resume.email")}</span> ramirezsandro96@gmail.com

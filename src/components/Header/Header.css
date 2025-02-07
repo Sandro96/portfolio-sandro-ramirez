@@ -60,6 +60,12 @@
   stroke-linejoin: round;
 }
 
+@media screen and (max-width: 1300px) {
+  .header .titles .title {
+    font-size: 1.7rem;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .header {
     flex-direction: column;
@@ -78,7 +84,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  .header .photo-side{
+  .header .photo-side {
     display: none;
   }
 }
