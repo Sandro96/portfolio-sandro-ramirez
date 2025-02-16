@@ -1,12 +1,11 @@
 [
     {
         "id": 1,
-        "name": "Portfolio Web",
+        "name": "Web Portfolio",
         "img": "img/PortfolioSc.webp",
-        "description": "A modern portfolio showcasing web and digital projects with details on creative solutions and skills. A reflection of dedication to digital excellence.",
+        "description": "A modern portfolio showcasing web and digital projects with details about creative solutions and skills. A reflection of dedication to digital excellence.",
         "techs": [
-            1,
-            7
+            1
         ],
         "urls": {
             "code": "https://github.com/Sandro96/Portfolio-Sandro-Ramirez"
@@ -14,17 +13,59 @@
     },
     {
         "id": 2,
+        "name": "API Send Mail",
+        "img": "img/ApiSendMailSc.webp",
+        "description": "API created to send emails using Resend. Credential and recipient configuration via environment variables.",
+        "techs": [
+            7
+        ],
+        "urls": {
+            "code": "https://github.com/Sandro96/api-send-mail"
+        }
+    },
+    {
+        "id": 3,
         "name": "Alkas Telecom",
         "img": "img/AlkasTelecomSc.webp",
         "description": "A landing page for Alkas Telecom, a fictional telecommunications company offering cutting-edge mobile plans and devices.",
         "techs": [
-            1,3,
-            4
+            1,
+            4,
+            5
         ],
         "urls": {
             "code": "https://github.com/Sandro96/alkastelecom",
             "view": "https://alkas-telecom.vercel.app",
             "design": "https://www.behance.net/gallery/138923963/Alkas-Telecom"
         }
+    },
+    {
+        "id": 4,
+        "name": "Alkas Security",
+        "img": "img/AlkasSecuritySc.webp",
+        "description": "A landing page for Alkas Security, a fictional security company with a responsive design.",
+        "techs": [
+            2,
+            4,
+            5
+        ],
+        "urls": {
+            "code": "https://github.com/Sandro96/alkas-security",
+            "view": "https://alkas-security.vercel.app"
+        }
+    },
+    {
+        "id": 5,
+        "name": "Alkas Supermarket",
+        "img": "img/AlkasSupermarketSc.webp",
+        "description": "A fictional e-commerce platform that allows users to explore products, manage a shopping cart, and place orders with user authentication.",
+        "techs": [
+            2,
+            4,            
+            5,
+            13,
+            9
+        ],
+        "urls": {}
     }
 ]

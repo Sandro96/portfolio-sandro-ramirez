@@ -37,7 +37,8 @@
     "projects": {
         "code": "Code",
         "view": "View",
-        "design": "Design"
+        "design": "Design",
+        "in-develop": "IN DEVELOPMENT"
     },
     "contact": {
         "name": "Name",

@@ -7,7 +7,7 @@ import skillsData from "../../assets/data/skills/skills.json";
 import { AiOutlineGithub } from "react-icons/ai";
 import { TfiWorld } from "react-icons/tfi";
 import { MdDesignServices } from "react-icons/md";
-import { FaReact, FaAngular, FaBootstrap, FaNodeJs } from "react-icons/fa";
+import { FaReact, FaAngular, FaNodeJs } from "react-icons/fa";
 import {
   SiTypescript,
   SiTailwindcss,
@@ -17,14 +17,17 @@ import {
   SiPostman,
   SiOctopusdeploy,
   SiTeamcity,
+  SiNestjs,
 } from "react-icons/si";
+import { SiNextdotjs } from "react-icons/si";
+import { GiGearHammer } from "react-icons/gi";
 
 const iconMap = {
   FaReact: FaReact,
   FaAngular: FaAngular,
   SiTypescript: SiTypescript,
   SiTailwindcss: SiTailwindcss,
-  FaBootstrap: FaBootstrap,
+  SiNextdotjs: SiNextdotjs,
   SiDotnet: SiDotnet,
   FaNodeJs: FaNodeJs,
   SiMicrosoftsqlserver: SiMicrosoftsqlserver,
@@ -32,6 +35,7 @@ const iconMap = {
   SiPostman: SiPostman,
   SiOctopusdeploy: SiOctopusdeploy,
   SiTeamcity: SiTeamcity,
+  SiNestjs: SiNestjs,
 };
 
 const Projects = () => {
@@ -80,10 +84,10 @@ const Projects = () => {
             <div className="techs">
               <ul>
                 {currentProject.techs.map((tech, techIndex) => (
-                  <li key={techIndex}>
+                  <li key={techIndex} style={{ color: "#ffffff" }}>
                     {tech.icon &&
-                      React.createElement(iconMap[tech.icon], { size: 20 })}
-                    {tech.name}
+                      React.createElement(iconMap[tech.icon], { size: 20, color: tech.color })}
+                    <span style={{ marginLeft: "8px" }}>{tech.name}</span>
                   </li>
                 ))}
               </ul>
@@ -127,6 +131,11 @@ const Projects = () => {
                 </button>
               </a>
             )}
+            {!currentProject.urls.code &&
+              !currentProject.urls.view &&
+              !currentProject.urls.design && (
+                <p className="in-develop"><GiGearHammer size={40}/>{t("projects.in-develop")}</p>
+              )}
           </div>
         </div>
         <div className="card-image">

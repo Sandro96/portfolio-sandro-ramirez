@@ -38,7 +38,8 @@
     "projects": {
         "code": "Codigo",
         "view": "Vista",
-        "design": "Diseño"
+        "design": "Diseño",
+        "in-develop": "EN DESARROLLO"
     },
     "contact": {
         "name": "Nombre",

@@ -7,7 +7,6 @@ import skillsData from "../../assets/data/skills/skills.json";
 import {
   FaReact,
   FaAngular,
-  FaBootstrap,
   FaNodeJs,
 } from "react-icons/fa";
 import {
@@ -20,13 +19,13 @@ import {
   SiOctopusdeploy,
   SiTeamcity,
 } from "react-icons/si";
-
+import { SiNextdotjs } from "react-icons/si";
 const iconMap = {
   FaReact: FaReact,
   FaAngular: FaAngular,
   SiTypescript: SiTypescript,
   SiTailwindcss: SiTailwindcss,
-  FaBootstrap: FaBootstrap,
+  SiNextdotjs: SiNextdotjs,
   SiDotnet: SiDotnet,
   FaNodeJs: FaNodeJs,
   SiMicrosoftsqlserver: SiMicrosoftsqlserver,
@@ -41,9 +40,9 @@ const Skills = () => {
   const [filter, setFilter] = useState("all");
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const filteredSkills = skillsData.filter(
-    (skill) => filter === "all" || skill.filter === filter
-  );
+  const filteredSkills = skillsData
+  .filter((skill) => filter === "all" || skill.filter === filter)
+  .slice(0, 12);
 
   const handleFilterClick = (newFilter, index) => {
     setFilter(newFilter);
