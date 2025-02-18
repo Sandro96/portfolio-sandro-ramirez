@@ -20,6 +20,7 @@ import {
   SiTeamcity,
 } from "react-icons/si";
 import { SiNextdotjs } from "react-icons/si";
+
 const iconMap = {
   FaReact: FaReact,
   FaAngular: FaAngular,
@@ -41,8 +42,8 @@ const Skills = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const filteredSkills = skillsData
-  .filter((skill) => filter === "all" || skill.filter === filter)
-  .slice(0, 12);
+    .filter((skill) => filter === "all" || skill.filter === filter)
+    .slice(0, 12);
 
   const handleFilterClick = (newFilter, index) => {
     setFilter(newFilter);
@@ -89,8 +90,8 @@ const Skills = () => {
 
 const SkillCard = ({ skill }) => {
   const { ref, inView } = useInView({
-    triggerOnce: false, 
-    threshold: 0.2, 
+    triggerOnce: false,
+    threshold: 0.2,
   });
 
   const IconComponent = iconMap[skill.icon];
@@ -99,23 +100,26 @@ const SkillCard = ({ skill }) => {
     <motion.div
       ref={ref}
       className="card"
-      style={{ backgroundColor: `${skill.color}1A`, transition: "0.3s" }}
+      style={{
+        backgroundColor: `var(--bg_color)`,
+        transition: "0.3s",
+      }}
       initial={{ opacity: 0, scale: 0.8 }}
       animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       onMouseEnter={(e) => {
         e.currentTarget.style.border = `2px solid ${skill.color}`;
-        e.currentTarget.style.color = `${skill.color}`;
         e.currentTarget.style.scale = `1.02`;
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.border = "2px solid transparent";
-        e.currentTarget.style.color = `#fff`;
         e.currentTarget.style.scale = `1`;
       }}
     >
-      {IconComponent && <IconComponent className="icon" size={50} />}
-      <div className="skill-name">{skill.name}</div>
+      {IconComponent && <IconComponent className="icon" size={50} style={{ color: skill.color }} />}
+      <div className="skill-name" style={{ color: "#fff" }}>
+        {skill.name}
+      </div>
     </motion.div>
   );
 };

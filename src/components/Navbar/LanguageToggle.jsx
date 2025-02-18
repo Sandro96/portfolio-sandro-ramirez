@@ -7,7 +7,7 @@ const LanguageToggle = () => {
   const language = i18n.language;
 
   const toggleLanguage = debounce(() => {
-    const newLang = language === "en" ? "es" : "en";
+    const newLang = language === "es" ? "en" : "es";
     i18n.changeLanguage(newLang);
     localStorage.setItem("language", newLang);
   }, 300);

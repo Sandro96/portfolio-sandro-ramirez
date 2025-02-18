@@ -14,5 +14,5 @@
   { "id": 11, "name": "Octopus", "icon": "SiOctopusdeploy", "color": "#398FCD", "filter": "other" },
   { "id": 12, "name": "Team City", "icon": "SiTeamcity", "color": "#3991CD", "filter": "other" },
 
-  { "id": 13, "name": "Nest", "icon": "SiNestjs", "color": "#ea2868", "filter": "back" }
+  { "id": 13, "name": "Nest", "icon": "SiNestjs", "color": "#ea2868", "filter": "" }
 ]
