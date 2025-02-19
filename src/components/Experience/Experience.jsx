@@ -50,9 +50,10 @@ const ExperienceItem = memo(({ exp, selectedDetailId, onShowDetails, detailsData
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <h5 className="text-color">{exp.period}</h5>
-      <h4>{exp.name}</h4>
-      <h5 className="company-name">{exp.company}</h5>
+
+      <h2>{exp.name}</h2>
+      <p className="company-name">{exp.company}</p>
+      <p className="text-color">{exp.period}</p>
       <button onClick={() => onShowDetails(exp.id)}>
         {isSelected ? t("resume.hide") : t("resume.show")} 
       </button>

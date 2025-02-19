@@ -40,11 +40,11 @@
   height: 90px;
 }
 
-.card-content .details h4 {
+.card-content .details .numeration{
   font-size: 4rem;
 }
 
-.card-content .details h5 {
+.card-content .details h2 {
   font-size: 2rem;
   margin-bottom: 10px;
 }

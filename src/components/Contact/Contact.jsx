@@ -127,7 +127,11 @@ const Contact = () => {
           </div>
 
           <div className="form-group">
+            <label htmlFor="message" className="sr-only">
+              Your Message:
+            </label>
             <textarea
+              id="message"
               name="message"
               className="textarea"
               cols="30"

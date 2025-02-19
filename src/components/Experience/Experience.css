@@ -5,6 +5,7 @@
   gap: 20px;
 }
 
+
 .experience-item {
   border: 1px solid var(--primary-color);
   border-radius: 8px;
@@ -20,7 +21,8 @@
 }
 
 .experience-item h4,
-.experience-item h5 {
+.experience-item h5,
+.experience-item p {
   margin: 5px 0;
 }
 
