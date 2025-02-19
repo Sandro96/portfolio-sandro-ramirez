@@ -78,8 +78,8 @@ const Projects = () => {
       <div className="card-wrapper">
         <div className="card-content">
           <div className="details">
-            <h4>{formatId(currentProject.id, projectsWithSkills.length)}</h4>
-            <h5>{currentProject.name}</h5>
+            <p className="numeration">{formatId(currentProject.id, projectsWithSkills.length)}</p>
+            <h2>{currentProject.name}</h2>
             <p>{currentProject.description}</p>
             <div className="techs">
               <ul>

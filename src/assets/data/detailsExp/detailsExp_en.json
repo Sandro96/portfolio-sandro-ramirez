@@ -1,14 +1,12 @@
 [
     {
         "id": 1,
-        "customer": "Client: Baufest",
-        "description": "Development of an internal sports betting platform for Baufest during the 2022 FIFA World Cup in Qatar. Using .NET for business logic and SQL Server to manage user data, bets, and real-time results, the application allowed employees to make predictions and participate in friendly bets. With Blazor as the frontend framework, I designed an interactive and dynamic interface that facilitated a smooth user experience, optimizing interaction with bets and live result tracking.",
-        "duration": "Duration: 3 months"
+        "customer": "Internal Sports Betting System – Baufest",
+        "description": "I developed an application for the Qatar 2022 World Cup that was used by more than 400 employees, allowing them to make predictions and participate in friendly bets. The system was a success, remaining operational without interruptions throughout the entire championship.\nIn the frontend, I used React to design a dynamic and intuitive interface.\nIn the backend, I implemented business logic with .NET and managed real-time data with SQL Server, ensuring optimal performance and a seamless user experience."
     },
     {
         "id": 2,
-        "customer": "Client: D&C Logistics",
-        "description": "Provided support and enhancements to the internal system of a Chilean logistics company, developing functionalities and optimizing workflows to increase operational efficiency. My work included creating and managing logistics data tables and implementing them in the system. On the frontend, I worked with Angular and Bootstrap to build responsive components and interactive forms, facilitating order management and shipment tracking in an intuitive manner. On the backend, I used ASP.NET Core following SOLID principles and Clean Architecture to ensure a robust and maintainable structure, developing RESTful services integrated with the frontend and other systems. Using SQL Server, I designed optimized queries and stored procedures for fast data access. Additionally, I followed a repository system for code organization and established a continuous integration and deployment pipeline with Git, TeamCity, and Octopus, ensuring smooth delivery and minimizing production errors. Postman was essential in the testing phase, guaranteeing the quality and performance of the implemented REST services.",
-        "duration": "Duration: 1 year and 4 months"
+        "customer": "Internal Logistics System – D&C Logistics",
+        "description": "I implemented key improvements in the system, optimizing workflows and developing new functionalities.\nIn the frontend, I used Angular and Bootstrap to create responsive components and interactive forms that facilitated order management and shipment tracking.\nIn the backend, I worked with .NET, applying SOLID principles and Clean Architecture, developing RESTful API services integrated with other internal systems. I optimized queries and stored procedures in SQL Server to improve data access.\nI followed a repository pattern to organize the code and used Git, TeamCity, and Octopus for version control and deployment. Additionally, I conducted integration tests with Postman to ensure compatibility between internal systems."
     }
 ]

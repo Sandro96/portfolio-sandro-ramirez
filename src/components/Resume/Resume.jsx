@@ -22,7 +22,7 @@ const Resume = () => {
     <section className="resume" id="resume">
       <div className="container">
         <div className="content">
-          <p className="text-content">{t("resume.me03")}</p>
+          <p className="text-content">{t("resume.me02")}</p>
           <div className="button-group">
             {Object.keys(sections).map((key) => (
               <button

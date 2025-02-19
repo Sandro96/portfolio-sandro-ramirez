@@ -12,7 +12,8 @@ const Experience = () => {
   const { t, i18n } = useTranslation("global");
   const [selectedDetailId, setSelectedDetailId] = useState(null);
 
-  const experienceData = i18n.language === "es" ? experienceData_es : experienceData_en;
+  const experienceData =
+    i18n.language === "es" ? experienceData_es : experienceData_en;
   const detailsData = i18n.language === "es" ? detailsData_es : detailsData_en;
 
   const handleShowDetails = (id) => {
@@ -28,50 +29,58 @@ const Experience = () => {
           selectedDetailId={selectedDetailId}
           onShowDetails={handleShowDetails}
           detailsData={detailsData}
-          t={t} 
+          t={t}
         />
       ))}
     </div>
   );
 };
 
-const ExperienceItem = memo(({ exp, selectedDetailId, onShowDetails, detailsData, t }) => {
-  const isSelected = selectedDetailId === exp.id;
-  const { ref, inView } = useInView({
-    triggerOnce: false, 
-    threshold: 0.2, 
-  });
+const ExperienceItem = memo(
+  ({ exp, selectedDetailId, onShowDetails, detailsData, t }) => {
+    const isSelected = selectedDetailId === exp.id;
+    const { ref, inView } = useInView({
+      triggerOnce: false,
+      threshold: 0.2,
+    });
 
-  return (
-    <motion.div
-      ref={ref}
-      className="experience-item"
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-    >
-      <h5 className="text-color">{exp.period}</h5>
-      <h4>{exp.name}</h4>
-      <h5 className="company-name">{exp.company}</h5>
-      <button onClick={() => onShowDetails(exp.id)}>
-        {isSelected ? t("resume.hide") : t("resume.show")} 
-      </button>
-      {isSelected && (
-        <div className="experience-details">
-          {exp.details.map((detailId) => {
-            const detail = detailsData.find((d) => d.id === detailId);
-            return (
-              <div key={detail.id} className="detail-item">
-                <h5 className="customer-name">{detail.customer}</h5>
-                <p>{detail.description}</p>
-                <p className="text-color">{detail.duration}</p>
-              </div>
-            );
-          })}
-        </div>
-      )}
-    </motion.div>
-  );
-});
+    return (
+      <motion.div
+        ref={ref}
+        className="experience-item"
+        initial={{ opacity: 0, y: 30 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        <h2>{exp.name}</h2>
+        <p className="company-name">{exp.company}</p>
+        <p className="text-color">{exp.period}</p>
+        <button onClick={() => onShowDetails(exp.id)}>
+          {isSelected ? t("resume.hide") : t("resume.show")}
+        </button>
+        {isSelected && (
+          <div className="experience-details">
+            {exp.details.map((detailId) => {
+              const detail = detailsData.find((d) => d.id === detailId);
+              return (
+                <div key={detail.id} className="detail-item">
+                  <h5 className="customer-name">{detail.customer}</h5>
+                  <p>
+                    {detail.description.split("\n").map((line, i) => (
+                      <span key={i}>
+                        {line}
+                        <br /><br />
+                      </span>
+                    ))}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </motion.div>
+    );
+  }
+);
 
 export default Experience;

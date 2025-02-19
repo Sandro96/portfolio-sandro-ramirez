@@ -33,9 +33,38 @@ const About = () => {
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <p>
-          {t("resume.me01")}
-          <span className="text-color">Sandro Ramirez</span>
-          {t("resume.me02")}
+          {t("resume.me01")
+            .split("{{name}}")
+            .map((part, i) =>
+              i === 0 ? (
+                part.split("\n").map((line, j) => <span key={j}>{line}</span>)
+              ) : (
+                <>
+                  <span key={i} className="text-color">
+                    Sandro Ramirez
+                  </span>
+                  {part.split("{{subTitle}}").map((subPart, k) =>
+                    k === 0 ? (
+                      subPart.split("\n").map((line, j) => (
+                        <span key={j}>
+                          {line}
+                        </span>
+                      ))
+                    ) : (
+                      <>
+                        <span key={k}>{t("header.subTitle")}</span>
+                        {subPart.split("\n").map((line, j) => (
+                          <span key={j}>
+                            {line}
+                            <br />
+                          </span>
+                        ))}
+                      </>
+                    )
+                  )}
+                </>
+              )
+            )}
         </p>
       </motion.div>
 

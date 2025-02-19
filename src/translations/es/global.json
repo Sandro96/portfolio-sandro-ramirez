@@ -16,9 +16,8 @@
         "education": "Educación",
         "skills": "Habilidades",
         "about": "Sobre mi",
-        "me01": "Hola! Me llamo ",
-        "me02": ". Desarrollador FullStack apasionado por la tecnología y la creación de soluciones innovadoras.",
-        "me03": "Descubre cómo puedo contribuir a tus ideas!",
+        "me01": "Hola! Me llamo {{name}} {{subTitle}} con 2 años de experiencia en entornos ágiles, especializado en la creación de soluciones escalables y eficientes, aplicando buenas prácticas como la metodología SOLID. \nAdemás de mis habilidades técnicas, tengo un fuerte enfoque en el diseño y la usabilidad, garantizando interfaces intuitivas y atractivas para una mejor experiencia del usuario. \nBusco nuevos desafíos donde pueda seguir creciendo y aportar mis conocimientos en desarrollo web.",
+        "me02": "Descubre cómo puedo contribuir a tus ideas!",
         "show": "Ver más",
         "hide": "Ocultar",
         "filter-all": "Todas",
@@ -33,7 +32,6 @@
         "music": "Música",
         "movies": "Peliculas",
         "sports": "Deportes"
-
     },
     "projects": {
         "code": "Codigo",
@@ -51,5 +49,15 @@
         "formSubmitted": "Mensaje enviado con exito!",
         "formError": "Fallo al enviar. Por favor vuelva a intentarlo.",
         "sending": "Enviando..."
+    },
+    "meta": {
+        "title": "Sandro Ramirez | Portafolio de Desarrollador Full Stack",
+        "comeback": "Hey! No te vayas 👀",
+        "description": "Descubre los proyectos de Sandro Ramirez, un desarrollador full stack especializado en soluciones creativas y eficientes. Explora su portafolio con ejemplos de aplicaciones modernas y funcionales.",
+        "keywords": "Desarrollador Web, Full Stack, React, Node.js, JavaScript, Portafolio, UI/UX, Web Portfolio",
+        
+        "og-title": "Sandro Ramirez | Portafolio",
+        "og-description": "Explora mis últimos proyectos y soluciones creativas en desarrollo web.",
+        "og-image-alt": "Vista previa del portafolio de Sandro Ramirez"
     }
 }

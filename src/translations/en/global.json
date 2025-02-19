@@ -7,7 +7,7 @@
         "lng": "EN"
     },
     "header": {
-        "subTitle": "FullStack Developer",   
+        "subTitle": "FullStack Developer",
         "hi": "Hi I'm",
         "download": "Download CV"
     },
@@ -16,9 +16,8 @@
         "education": "Education",
         "skills": "Skills",
         "about": "About me",
-        "me01": "Hello! I'm ",
-        "me02": ". A FullStack Developer passionate about technology and creating innovative solutions.",
-        "me03": "Discover how I can contribute to your ideas",
+        "me01": "Hello! My name is {{name}} {{subTitle}} with 2 years of experience in agile environments, specialized in creating scalable and efficient solutions, applying best practices such as the SOLID methodology. \nIn addition to my technical skills, I have a strong focus on design and usability, ensuring intuitive and attractive interfaces for a better user experience. \nI am looking for new challenges where I can continue growing and contribute my knowledge in web development.",
+        "me02": "Discover how I can contribute to your ideas",
         "show": "Show",
         "hide": "Hide",
         "filter-all": "All",
@@ -50,5 +49,15 @@
         "formSubmitted": "Email sent successfully!",
         "formError": "Failed to send email. Please try again later.",
         "sending": "Sending..."
+    },
+    "meta": {
+        "title": "Sandro Ramirez | Full Stack Developer Portfolio",
+        "comeback": "Hey! Come back 👀",
+        "description": "Discover the projects of Sandro Ramirez, a full-stack web developer specializing in creative and efficient solutions. Explore his portfolio with examples of modern and functional applications.",
+        "keywords": "Web Developer, Full Stack, React, Node.js, JavaScript, Portfolio, UI/UX, Web Portfolio",
+        
+        "og-title": "Sandro Ramirez | Portfolio",
+        "og-description": "Explore my latest projects and creative solutions in web development.",
+        "og-image-alt": "Preview of Sandro Ramirez's portfolio"
     }
 }

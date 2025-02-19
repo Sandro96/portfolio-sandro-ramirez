@@ -18,7 +18,7 @@ const Header = () => {
   const language = i18n.language;
 
   const cvFilename =
-    language === "en" ? "SandroRamirez_CV_EN.pdf" : "SandroRamirez_CV_ES.pdf";
+    language === "en" ? "Ramirez_Sandro_CV.pdf" : "Sandro_Ramirez_CV.pdf";
   const cvLink = `/pdf/${cvFilename}`;
 
   const [refTitle, inViewTitle] = useInView({
@@ -91,7 +91,7 @@ const Header = () => {
           animate={inViewButton ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, ease: "easeInOut", delay: 0.4 }}
           href={cvLink}
-          download={`Sandro_Ramirez_CV_${language.toUpperCase()}.pdf`}
+          download={cvFilename}
         >
           <button className="fill">
             {t("header.download")} <HiOutlineDownload />
