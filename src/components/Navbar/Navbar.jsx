@@ -80,7 +80,14 @@ const Navbar = () => {
           className="text-white link logo-link"
         >
           <div className="logo-wrapper">
-            <img src="/svg/IconSR.svg" alt="Logo SR" className="logo-image" />
+            {/* ✅ Asegurate que este archivo esté en /public/svg/IconSR.svg */}
+            <img
+              src="/svg/iconSR.svg"
+              alt="Logo SR"
+              className="logo-image"
+              width={32}
+              height={32}
+            />
             <h2>
               Sandro<span className="text-color">Ramirez</span>
             </h2>
@@ -99,10 +106,7 @@ const Navbar = () => {
           ))}
           <LanguageToggle />
         </div>
-        <button
-          className="text-white hamburger-menu"
-          onClick={toggleNav}
-        >
+        <button className="text-white hamburger-menu" onClick={toggleNav}>
           ☰
         </button>
       </div>
