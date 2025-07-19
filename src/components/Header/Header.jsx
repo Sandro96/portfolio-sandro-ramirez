@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import "./Header.css";
 import { useTranslation } from "react-i18next";
+import Typed from "typed.js";
 import {
   AiOutlineGithub,
   AiFillLinkedin,
@@ -12,31 +12,34 @@ import {
 } from "react-icons/ai";
 import { HiOutlineDownload } from "react-icons/hi";
 import photo from "../../assets/img/photo01.webp";
+import "./Header.css";
 
 const Header = () => {
   const { t, i18n } = useTranslation("global");
   const language = i18n.language;
 
   const cvFilename =
-    language === "en" ? "ramirez-sandro-cv.pdf" : "sandro-ramirez-cv.pdf";
+    language === "en" ? "sandroramirez_cv_eng.pdf" : "sandroramirez_cv.pdf";
   const cvLink = `/pdf/${cvFilename}`;
 
-  const [refTitle, inViewTitle] = useInView({
-    triggerOnce: false,
-    threshold: 0.2,
-  });
-  const [refSocial, inViewSocial] = useInView({
-    triggerOnce: false,
-    threshold: 0.2,
-  });
-  const [refButton, inViewButton] = useInView({
-    triggerOnce: false,
-    threshold: 0.2,
-  });
-  const [refImage, inViewImage] = useInView({
-    triggerOnce: false,
-    threshold: 0.2,
-  });
+  const [refTitle, inViewTitle] = useInView({ triggerOnce: false, threshold: 0.2 });
+  const [refSocial, inViewSocial] = useInView({ triggerOnce: false, threshold: 0.2 });
+  const [refButton, inViewButton] = useInView({ triggerOnce: false, threshold: 0.2 });
+  const [refImage, inViewImage] = useInView({ triggerOnce: false, threshold: 0.2 });
+
+  const typedRef = useRef(null);
+
+  useEffect(() => {
+    const typed = new Typed(typedRef.current, {
+      strings: t("header.titles", { returnObjects: true }),
+      typeSpeed: 60,
+      backSpeed: 40,
+      loop: true,
+      backDelay: 1500,
+    });
+
+    return () => typed.destroy();
+  }, [t]);
 
   return (
     <section className="header container" id="home">
@@ -48,8 +51,10 @@ const Header = () => {
           transition={{ duration: 0.6, ease: "easeInOut" }}
           className="titles"
         >
-          <h2 className="title">{t("header.subTitle")}</h2>
           <h1 className="text-color">Sandro Ramirez</h1>
+          <h2 className="text-animation">
+            <span ref={typedRef} />
+          </h2>
         </motion.div>
 
         <motion.div

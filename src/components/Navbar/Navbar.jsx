@@ -77,11 +77,14 @@ const Navbar = () => {
           duration={800}
           href="#home"
           onClick={() => setShowNav(false)}
-          className="text-white link"
+          className="text-white link logo-link"
         >
-          <h2>
-            Sandro <span className="text-color">Ramirez</span>
-          </h2>
+          <div className="logo-wrapper">
+            <img src="public/svg/IconSR.svg" alt="Logo SR" className="logo-image" />
+            <h2>
+              Sandro<span className="text-color">Ramirez</span>
+            </h2>
+          </div>
         </Link>
         <div className="links">
           {["home", "resume", "projects", "contact"].map((section) => (

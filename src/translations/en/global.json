@@ -7,8 +7,8 @@
         "lng": "EN"
     },
     "header": {
-        "subTitle": "FullStack Developer",
         "hi": "Hi I'm",
+        "titles": ["FullStack Developer", "UX/UI Designer"],
         "download": "Download CV"
     },
     "resume": {
