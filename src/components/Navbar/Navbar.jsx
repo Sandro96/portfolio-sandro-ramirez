@@ -80,7 +80,6 @@ const Navbar = () => {
           className="text-white link logo-link"
         >
           <div className="logo-wrapper">
-            {/* ✅ Asegurate que este archivo esté en /public/svg/IconSR.svg */}
             <img
               src="/svg/iconSR.svg"
               alt="Logo SR"
