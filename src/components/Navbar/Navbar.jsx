@@ -80,7 +80,7 @@ const Navbar = () => {
           className="text-white link logo-link"
         >
           <div className="logo-wrapper">
-            <img src="public/svg/IconSR.svg" alt="Logo SR" className="logo-image" />
+            <img src="/svg/IconSR.svg" alt="Logo SR" className="logo-image" />
             <h2>
               Sandro<span className="text-color">Ramirez</span>
             </h2>
