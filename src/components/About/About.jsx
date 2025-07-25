@@ -37,28 +37,21 @@ const About = () => {
             .split("{{name}}")
             .map((part, i) =>
               i === 0 ? (
-                part.split("\n").map((line, j) => <span key={j}>{line}</span>)
+                <span key="before-name">{part}</span>
               ) : (
                 <>
-                  <span key={i} className="text-color">
+                  <span key="name" className="text-color">
                     Sandro Ramirez
                   </span>
                   {part.split("{{subTitle}}").map((subPart, k) =>
                     k === 0 ? (
-                      subPart.split("\n").map((line, j) => (
-                        <span key={j}>
-                          {line}
-                        </span>
-                      ))
+                      <span key="after-name">{subPart}</span>
                     ) : (
                       <>
-                        <span key={k}>{t("header.subTitle")}</span>
-                        {subPart.split("\n").map((line, j) => (
-                          <span key={j}>
-                            {line}
-                            <br />
-                          </span>
-                        ))}
+                        <span key="titles">
+                          {t("header.titles", { returnObjects: true }).join(" y ")}
+                        </span>
+                        <span key="after-titles">{subPart}</span>
                       </>
                     )
                   )}
@@ -68,29 +61,7 @@ const About = () => {
         </p>
       </motion.div>
 
-      <motion.div
-        ref={presentationRef}
-        className="personal-info"
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={isPresentationInView ? { opacity: 1, scale: 1 } : {}}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-      >
-        <h4>{t("resume.personal-info")}</h4>
-        <div className="info">
-          <p>
-            <span>{t("resume.name")}</span> Sandro Nahuel Ramirez Tokarsky
-          </p>
-          <p>
-            <span>{t("resume.age")}</span> {age} {t("resume.years")}
-          </p>
-          <p>
-            <span>{t("resume.email")}</span> ramirezsandro96@gmail.com
-          </p>
-          <p>
-            <span>{t("resume.location")}</span> Montevideo, UY
-          </p>
-        </div>
-      </motion.div>
+
 
       <motion.div
         ref={hobbiesRef}
