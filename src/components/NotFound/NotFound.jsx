@@ -2,11 +2,27 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { AiOutlineHome, AiOutlineArrowLeft } from "react-icons/ai";
+import { AiOutlineHome } from "react-icons/ai";
 import "./NotFound.css";
 
 const NotFound = () => {
   const { t } = useTranslation("global");
+
+  // Fallback text in case translations don't load
+  const fallbackText = {
+    title: "Page not found",
+    description: "The page you're looking for doesn't exist. But don't worry, you can go back to the home page and explore my portfolio.",
+    homeButton: "Go home"
+  };
+
+  const getText = (key) => {
+    try {
+      return t(`notFound.${key}`) || fallbackText[key];
+    } catch (error) {
+      console.warn(`Translation error for notFound.${key}:`, error);
+      return fallbackText[key];
+    }
+  };
 
   return (
     <section className="not-found">
@@ -34,8 +50,8 @@ const NotFound = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="error-message"
           >
-            <h2>{t("notFound.title")}</h2>
-            <p>{t("notFound.description")}</p>
+            <h2>{getText("title")}</h2>
+            <p>{getText("description")}</p>
           </motion.div>
 
           <motion.div
@@ -46,7 +62,7 @@ const NotFound = () => {
           >
             <Link to="/" className="btn-primary">
               <AiOutlineHome />
-              {t("notFound.homeButton")}
+              {getText("homeButton")}
             </Link>
           </motion.div>
 
