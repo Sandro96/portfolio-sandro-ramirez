@@ -59,5 +59,10 @@
         "og-title": "Sandro Ramirez | Portfolio",
         "og-description": "Explore my latest projects and creative solutions in web development.",
         "og-image-alt": "Preview of Sandro Ramirez's portfolio"
+    },
+    "notFound": {
+        "title": "Page not found",
+        "description": "The page you're looking for doesn't exist. But don't worry, you can go back to the home page and explore my portfolio.",
+        "homeButton": "Go home"
     }
 }

@@ -59,5 +59,10 @@
         "og-title": "Sandro Ramirez | Portafolio",
         "og-description": "Explora mis últimos proyectos y soluciones creativas en desarrollo web.",
         "og-image-alt": "Vista previa del portafolio de Sandro Ramirez"
+    },
+    "notFound": {
+        "title": "Página no encontrada",
+        "description": "La página que buscas no existe. Pero no te preocupes, puedes regresar al inicio y explorar mi portafolio.",
+        "homeButton": "Ir al inicio"
     }
 }

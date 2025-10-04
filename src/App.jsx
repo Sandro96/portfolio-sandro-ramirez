@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header";
 import Resume from "./components/Resume/Resume";
 import Projects from "./components/Projects/Projects";
 import Contact from "./components/Contact/Contact";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   const { t, i18n } = useTranslation("global");
@@ -52,11 +54,20 @@ function App() {
         <link rel="canonical" href="https://ramirezsandro.com" />
       </Helmet>
 
-      <Navbar />
-      <Header />
-      <Resume />
-      <Projects />
-      <Contact />
+      <Router>
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Navbar />
+              <Header />
+              <Resume />
+              <Projects />
+              <Contact />
+            </>
+          } />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
       <Analytics />
     </HelmetProvider>
   );
