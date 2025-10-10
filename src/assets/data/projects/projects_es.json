@@ -56,8 +56,8 @@
     },
     {
         "id": 5,
-        "name": "Alkas Supermarket",
-        "img": "img/AlkasSupermarketSc.webp",
+        "name": "Cuper Supermarket",
+        "img": "img/CuperSupermarketSc.webp",
         "description": "Una plataforma ficticia de e-commerce que permite explorar productos, gestionar un carrito de compras y realizar pedidos con autenticación de usuarios.",
         "techs": [
             2,
@@ -68,6 +68,7 @@
 
         ],
         "urls": {
+            "view": "https://cuper-supermarket.vercel.app"
         }
     }
 ]
