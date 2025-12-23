@@ -12,28 +12,46 @@ import {
 import {
   SiTypescript,
   SiTailwindcss,
+  SiBootstrap,
   SiDotnet,
   SiMicrosoftsqlserver,
   SiMongodb,
   SiPostman,
   SiOctopusdeploy,
   SiTeamcity,
+  SiNextdotjs,
+  SiNestjs,
+  SiVercel,
+  SiRailway,
+  SiOpenai,
 } from "react-icons/si";
-import { SiNextdotjs } from "react-icons/si";
+
+const VercelLogo = ({ size, color }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="12" fill="#000000"/>
+    <path d="M12 8L16.5 16H7.5L12 8Z" fill={color || "#ffffff"}/>
+  </svg>
+);
+
 
 const iconMap = {
   FaReact: FaReact,
   FaAngular: FaAngular,
+  FaNodeJs: FaNodeJs,
   SiTypescript: SiTypescript,
   SiTailwindcss: SiTailwindcss,
+  SiBootstrap: SiBootstrap,
   SiNextdotjs: SiNextdotjs,
   SiDotnet: SiDotnet,
-  FaNodeJs: FaNodeJs,
+  SiNestjs: SiNestjs,
   SiMicrosoftsqlserver: SiMicrosoftsqlserver,
   SiMongodb: SiMongodb,
   SiPostman: SiPostman,
   SiOctopusdeploy: SiOctopusdeploy,
   SiTeamcity: SiTeamcity,
+  SiVercel: VercelLogo,
+  SiRailway: SiRailway,
+  SiOpenai: SiOpenai,
 };
 
 const Skills = () => {
@@ -42,7 +60,7 @@ const Skills = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const filteredSkills = skillsData
-    .filter((skill) => filter === "all" || skill.filter === filter)
+    .filter((skill) => (filter === "all" || skill.filter === filter) && skill.filter !== "hidden")
     .slice(0, 12);
 
   const handleFilterClick = (newFilter, index) => {
@@ -95,6 +113,7 @@ const SkillCard = ({ skill }) => {
   });
 
   const IconComponent = iconMap[skill.icon];
+  const IconComponent2 = skill.icon2 ? iconMap[skill.icon2] : null;
 
   return (
     <motion.div
@@ -116,8 +135,39 @@ const SkillCard = ({ skill }) => {
         e.currentTarget.style.scale = `1`;
       }}
     >
-      {IconComponent && <IconComponent className="icon" size={50} style={{ color: skill.color }} />}
-      <div className="skill-name" style={{ color: "#fff" }}>
+      <div className={`icon-container ${IconComponent2 ? 'dual-icons' : ''}`}>
+        {IconComponent && (
+          skill.icon === 'SiVercel' ? (
+            <VercelLogo 
+              className="icon vercel-icon" 
+              size={IconComponent2 ? 40 : 50} 
+              color={skill.color} 
+            />
+          ) : (
+            <IconComponent 
+              className="icon" 
+              size={IconComponent2 ? 40 : 50} 
+              style={{ color: skill.color }} 
+            />
+          )
+        )}
+        {IconComponent2 && (
+          skill.icon2 === 'SiVercel' ? (
+            <VercelLogo 
+              className="icon icon-second vercel-icon" 
+              size={40} 
+              color={skill.color2 || skill.color} 
+            />
+          ) : (
+            <IconComponent2 
+              className="icon icon-second" 
+              size={40} 
+              style={{ color: skill.color2 || skill.color }} 
+            />
+          )
+        )}
+      </div>
+      <div className={`skill-name ${IconComponent2 ? 'dual-icons-text' : ''}`} style={{ color: "#fff" }}>
         {skill.name}
       </div>
     </motion.div>

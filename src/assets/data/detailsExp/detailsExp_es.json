@@ -1,5 +1,10 @@
 [
     {
+        "id": 3,
+        "customer": "CaminoCode",
+        "description": "En CaminoCode desempeño un rol integral como desarrollador full stack, participando en el diseño y desarrollo de interfaces interactivas con React y Next.js, la integración de APIs externas mediante NestJS y Go, y la optimización de rendimiento y escalabilidad en plataformas SaaS con PostgreSQL. Además, colaboré en el rediseño del logotipo de la empresa, aportando a la identidad visual y a la coherencia del branding. Mi trabajo combina la implementación técnica con criterios de experiencia de usuario, asegurando soluciones funcionales y consistentes para los proyectos asignados."
+    },
+    {
         "id": 1,
         "customer": "Sistema Interno de Apuestas Deportivas – Baufest",
         "description": "Desarrollé una aplicación para el Mundial de Qatar 2022 que fue utilizada por más de 400 empleados, permitiéndoles hacer predicciones y participar en apuestas amistosas. El sistema fue un éxito, manteniéndose operativo sin interrupciones durante todo el campeonato.\nEn el frontend, utilicé React para diseñar una interfaz dinámica e intuitiva. \nEn el backend, implementé la lógica de negocio con .NET y gestioné datos en tiempo real con SQL Server, asegurando un rendimiento óptimo y una experiencia fluida para los usuarios."

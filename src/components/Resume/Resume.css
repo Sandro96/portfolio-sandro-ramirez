@@ -34,6 +34,29 @@
 
 .resume .button-group button {
   width: 100%;
+  background: linear-gradient(135deg, var(--bg-color) 0%, rgba(34, 200, 164, 0.05) 100%);
+}
+
+.resume .button-group button:hover:not(.active-button) {
+  background: linear-gradient(135deg, rgba(34, 200, 164, 0.15) 0%, rgba(34, 200, 164, 0.25) 100%);
+  border-color: #fff;
+  box-shadow: none;
+  scale: 1;
+  color: var(--primary-color);
+}
+
+.resume .button-group button.active-button {
+  background: linear-gradient(135deg, var(--primary-color) 0%, rgba(34, 200, 164, 0.9) 100%);
+  color: var(--bg-color-v);
+  box-shadow: none;
+}
+
+.resume .button-group button.active-button:hover {
+  background: linear-gradient(135deg, var(--primary-color) 0%, rgba(34, 200, 164, 0.9) 100%);
+  color: var(--bg-color-v);
+  border-color: var(--primary-color);
+  box-shadow: none;
+  scale: 1;
 }
 
 .resume .dynamic-view {
@@ -42,6 +65,10 @@
   background: var(--bg-color-v);
   border-radius: 14px;
   box-shadow: 0 0 2px #fff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 /* Media queries */

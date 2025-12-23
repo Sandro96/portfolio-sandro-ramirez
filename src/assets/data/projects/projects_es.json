@@ -5,7 +5,7 @@
         "img": "img/PortfolioSc.webp",
         "description": "Un portafolio moderno que muestra proyectos web y digitales con detalles sobre soluciones creativas y habilidades. Un reflejo de dedicación a la excelencia digital.",
         "techs": [
-            1
+            15
         ],
         "urls": {
             "code": "https://github.com/Sandro96/Portfolio-Sandro-Ramirez"
@@ -17,7 +17,7 @@
         "img": "img/ApiSendMailSc.webp",
         "description": "API creada para enviar correos electrónicos utilizando Resend. Configuración de credenciales y destinatarios a través de variables de entorno.",
         "techs": [
-            7
+            18
         ],
         "urls": {
             "code": "https://github.com/Sandro96/api-send-mail"
@@ -29,7 +29,7 @@
         "img": "img/AlkasTelecomSc.webp",
         "description": "Una página de inicio para Alkas Telecom, una compañía de telecomunicaciones ficticia que ofrece planes y dispositivos móviles de vanguardia.",
         "techs": [
-            1,
+            15,
             4,
             5
         ],
@@ -45,7 +45,7 @@
         "img": "img/AlkasSecuritySc.webp",
         "description": "Una página de inicio para Alkas Telecom, una compañía de seguridad ficticia con un diseño resposivo.",
         "techs": [
-            2,
+            16,
             4,
             5
         ],
@@ -60,15 +60,27 @@
         "img": "img/CuperSupermarketSc.webp",
         "description": "Una plataforma ficticia de e-commerce que permite explorar productos, gestionar un carrito de compras y realizar pedidos con autenticación de usuarios.",
         "techs": [
-            2,
-            4,            
+            16,
+            4,
             5,
-            13,
+            17,
             9
-
         ],
         "urls": {
             "view": "https://cuper-supermarket.vercel.app"
+        }
+    },
+    {
+        "id": 6,
+        "name": "CaminoCode",
+        "img": "img/CaminoCodeSc.webp",
+        "description": "Empresa que construye plataformas con IA y ofrece servicios de Applied AI. Participé en el desarrollo de soluciones de inteligencia artificial aplicada y sistemas de automatización inteligente.",
+        "techs": [
+            16,
+            5
+        ],
+        "urls": {
+            "view": "https://www.caminocode.com/"
         }
     }
 ]

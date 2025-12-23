@@ -58,8 +58,10 @@ const EducationGroup = ({ type, items }) => {
 const EducationItem = ({ item }) => {
   return (
     <div className="education-item">
-      <p className="education-name">{item.name}</p>
-      <p className="education-institution">{item.institution}</p>
+      <div className="education-item-content">
+        <p className="education-name">{item.name}</p>
+        <p className="education-institution">{item.institution}</p>
+      </div>
       {item.url && (
         <a
           href={item.url}

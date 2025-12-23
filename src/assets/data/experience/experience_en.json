@@ -1,5 +1,12 @@
 [
     {
+        "id": 3,
+        "name": "FullStack Software Engineer",
+        "company": "CaminoCode · Freelance",
+        "period": "October 2025 - Present",
+        "details": [3]
+    },
+    {
         "id": 2,
         "name": "FullStack Developer",
         "company": "Baufest",

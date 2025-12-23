@@ -1,18 +1,21 @@
 [
-  { "id": 1, "name": "React", "icon": "FaReact", "color": "#2596BE", "filter": "front" },
-  { "id": 2, "name": "Next", "icon": "SiNextdotjs", "color": "#969696", "filter": "front" },
+  { "id": 1, "name": "Next + React", "icon": "SiNextdotjs", "icon2": "FaReact", "color": "#969696", "color2": "#2596BE", "filter": "front" },
   { "id": 3, "name": "Angular", "icon": "FaAngular", "color": "#D00F33", "filter": "front" },
   { "id": 4, "name": "TypeScript", "icon": "SiTypescript", "color": "#3178c6", "filter": "front" },
   { "id": 5, "name": "Tailwind", "icon": "SiTailwindcss", "color": "#07b6d5", "filter": "front" },
+  { "id": 13, "name": "Bootstrap", "icon": "SiBootstrap", "color": "#7952B3", "filter": "front" },
 
-  { "id": 6, "name": ".Net", "icon": "SiDotnet", "color": "#5027d5", "filter": "back" },
-  { "id": 7, "name": "Node", "icon": "FaNodeJs", "color": "#539d41", "filter": "back" },
-  { "id": 8, "name": "SQL Server", "icon": "SiMicrosoftsqlserver", "color": "#b41c1c", "filter": "back" },
+  { "id": 6, "name": ".Net + SQL Server", "icon": "SiDotnet", "icon2": "SiMicrosoftsqlserver", "color": "#b41c1c", "color2": "#b41c1c", "filter": "back" },
+  { "id": 7, "name": "Nest + Node", "icon": "SiNestjs", "icon2": "FaNodeJs", "color": "#ea2868", "color2": "#339933", "filter": "back" },
   { "id": 9, "name": "MongoDB", "icon": "SiMongodb", "color": "#599636", "filter": "back" },
 
+  { "id": 14, "name": "IA", "icon": "SiOpenai", "color": "#10A37F", "filter": "other" },
+  { "id": 12, "name": "Vercel & Railway", "icon": "SiVercel", "icon2": "SiRailway", "color": "#ffffff", "color2": "#ffffff", "filter": "other" },
+  { "id": 11, "name": "Octopus + TeamCity", "icon": "SiOctopusdeploy", "icon2": "SiTeamcity", "color": "#398FCD", "color2": "#4A9BCD", "filter": "other" },
   { "id": 10, "name": "Postman", "icon": "SiPostman", "color": "#ee6d3f", "filter": "other" },
-  { "id": 11, "name": "Octopus", "icon": "SiOctopusdeploy", "color": "#398FCD", "filter": "other" },
-  { "id": 12, "name": "Team City", "icon": "SiTeamcity", "color": "#3991CD", "filter": "other" },
-
-  { "id": 13, "name": "Nest", "icon": "SiNestjs", "color": "#ea2868", "filter": "" }
+  
+  { "id": 15, "name": "React", "icon": "FaReact", "color": "#2596BE", "filter": "hidden" },
+  { "id": 16, "name": "Next", "icon": "SiNextdotjs", "color": "#969696", "filter": "hidden" },
+  { "id": 17, "name": "Nest", "icon": "SiNestjs", "color": "#ea2868", "filter": "hidden" },
+  { "id": 18, "name": "Node", "icon": "FaNodeJs", "color": "#339933", "filter": "hidden" }
 ]

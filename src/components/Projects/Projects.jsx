@@ -25,17 +25,17 @@ import { GiGearHammer } from "react-icons/gi";
 const iconMap = {
   FaReact: FaReact,
   FaAngular: FaAngular,
+  FaNodeJs: FaNodeJs,
   SiTypescript: SiTypescript,
   SiTailwindcss: SiTailwindcss,
   SiNextdotjs: SiNextdotjs,
   SiDotnet: SiDotnet,
-  FaNodeJs: FaNodeJs,
+  SiNestjs: SiNestjs,
   SiMicrosoftsqlserver: SiMicrosoftsqlserver,
   SiMongodb: SiMongodb,
   SiPostman: SiPostman,
   SiOctopusdeploy: SiOctopusdeploy,
   SiTeamcity: SiTeamcity,
-  SiNestjs: SiNestjs,
 };
 
 const Projects = () => {
@@ -46,9 +46,11 @@ const Projects = () => {
   const mapSkillsToProjects = (projects, skills) => {
     const sortedProjects = [...projects].sort((a, b) => b.id - a.id);
     return sortedProjects.map((project) => {
-      const techs = project.techs.map((techId) => {
-        return skills.find((skill) => skill.id === techId);
-      });
+      const techs = project.techs
+        .map((techId) => {
+          return skills.find((skill) => skill.id === techId);
+        })
+        .filter((tech) => tech !== undefined);
       return { ...project, techs };
     });
   };
@@ -84,11 +86,13 @@ const Projects = () => {
             <div className="techs">
               <ul>
                 {currentProject.techs.map((tech, techIndex) => (
-                  <li key={techIndex} style={{ color: "#ffffff" }}>
-                    {tech.icon &&
-                      React.createElement(iconMap[tech.icon], { size: 20, color: tech.color })}
-                    <span style={{ marginLeft: "8px" }}>{tech.name}</span>
-                  </li>
+                  tech && (
+                    <li key={techIndex} style={{ color: "#ffffff" }}>
+                      {tech.icon && iconMap[tech.icon] &&
+                        React.createElement(iconMap[tech.icon], { size: 20, color: tech.color })}
+                      <span style={{ marginLeft: "8px" }}>{tech.name}</span>
+                    </li>
+                  )
                 ))}
               </ul>
             </div>
@@ -147,6 +151,7 @@ const Projects = () => {
                 className={`indicator ${
                   index === currentIndex ? "active" : ""
                 }`}
+                onClick={() => setCurrentIndex(index)}
               ></div>
             ))}
           </div>

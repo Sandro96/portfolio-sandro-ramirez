@@ -5,7 +5,7 @@
         "img": "img/PortfolioSc.webp",
         "description": "A modern portfolio showcasing web and digital projects with details about creative solutions and skills. A reflection of dedication to digital excellence.",
         "techs": [
-            1
+            15
         ],
         "urls": {
             "code": "https://github.com/Sandro96/Portfolio-Sandro-Ramirez"
@@ -17,7 +17,7 @@
         "img": "img/ApiSendMailSc.webp",
         "description": "API created to send emails using Resend. Credential and recipient configuration via environment variables.",
         "techs": [
-            7
+            18
         ],
         "urls": {
             "code": "https://github.com/Sandro96/api-send-mail"
@@ -29,7 +29,7 @@
         "img": "img/AlkasTelecomSc.webp",
         "description": "A landing page for Alkas Telecom, a fictional telecommunications company offering cutting-edge mobile plans and devices.",
         "techs": [
-            1,
+            15,
             4,
             5
         ],
@@ -45,7 +45,7 @@
         "img": "img/AlkasSecuritySc.webp",
         "description": "A landing page for Alkas Security, a fictional security company with a responsive design.",
         "techs": [
-            2,
+            16,
             4,
             5
         ],
@@ -60,14 +60,27 @@
         "img": "img/CuperSupermarketSc.webp",
         "description": "A fictional e-commerce platform that allows users to explore products, manage a shopping cart, and place orders with user authentication.",
         "techs": [
-            2,
+            16,
             4,
             5,
-            13,
+            17,
             9
         ],
         "urls": {
             "view": "https://cuper-supermarket.vercel.app"
+        }
+    },
+    {
+        "id": 6,
+        "name": "CaminoCode",
+        "img": "img/CaminoCodeSc.webp",
+        "description": "Company that builds AI-powered platforms and delivers Applied AI services. I participated in developing applied artificial intelligence solutions and intelligent automation systems.",
+        "techs": [
+            16,
+            5
+        ],
+        "urls": {
+            "view": "https://www.caminocode.com/"
         }
     }
 ]

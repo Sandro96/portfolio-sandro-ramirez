@@ -37,6 +37,41 @@
   height: 60px;
 }
 
+.skills .icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.skills .icon-container.dual-icons {
+  gap: 35px;
+}
+
+.skills .icon.icon-second {
+  margin-left: -15px;
+}
+
+.skills .icon.vercel-icon {
+  flex-shrink: 0;
+}
+
+.skills .skill-name {
+  font-size: 1rem;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.3;
+  max-width: 100%;
+  padding: 0 5px;
+}
+
+.skills .skill-name.dual-icons-text {
+  font-size: 0.75rem;
+  line-height: 1.2;
+  padding: 0 3px;
+}
+
 .skills .filter-buttons {
   position: relative;
   width: 400px;

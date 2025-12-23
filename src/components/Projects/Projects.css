@@ -40,7 +40,7 @@
   height: 90px;
 }
 
-.card-content .details .numeration{
+.card-content .details .numeration {
   font-size: 4rem;
 }
 
@@ -54,15 +54,19 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 15px;
 }
 
 .card-content .details .techs ul li {
-  font-size: 1rem;
-  color: var(--primary-color);
+  font-size: 0.8rem;
+  color: #fff;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
+  padding: 5px 10px;
+  background: rgba(34, 200, 164, 0.1);
+  border: 1px solid rgba(34, 200, 164, 0.3);
+  border-radius: 6px;
 }
 
 .card-image img {
@@ -85,7 +89,7 @@
   gap: 20px;
 }
 
-.projects .card-content .buttons .in-develop{
+.projects .card-content .buttons .in-develop {
   display: flex;
   gap: 0.5rem;
   justify-content: center;
@@ -97,25 +101,35 @@
 
 .projects .indicators {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   justify-content: center;
   align-items: center;
-  height: 20px;
+  height: 30px;
   width: 30%;
-  margin: 0 auto;
+  margin: 25px auto 0 auto;
 }
 
 .projects .indicator {
-  width: 10px;
-  height: 10px;
+  width: 16px;
+  height: 16px;
   background-color: var(--primary-color);
   opacity: 0.4;
   position: relative;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.projects .indicator:hover {
+  opacity: 0.7;
+  transform: scale(1.2);
 }
 
 .projects .indicator.active {
-  width: 100%;
+  width: 50px;
+  border-radius: 8px;
   opacity: 1;
+  box-shadow: 0 0 10px rgba(34, 200, 164, 0.6);
 }
 
 /* Media Queries */
@@ -140,11 +154,18 @@
     height: auto;
     width: 460px;
   }
+  .card-content .details .numeration {
+    font-size: 4rem;
+  }
 }
 
 @media screen and (max-width: 480px) {
-  .card-content .details .techs ul{
-    gap: 15px;
+  .card-content .details .techs ul {
+    gap: 12px;
+  }
+  .card-content .details .techs ul li {
+    font-size: 0.75rem;
+    padding: 4px 8px;
   }
   .card-image img {
     width: 350px;
@@ -160,5 +181,8 @@
   }
   .projects .card-content .buttons button {
     font-size: 14px;
+  }
+  .card-content .details .numeration {
+    font-size: 3rem;
   }
 }
