@@ -132,21 +132,23 @@
 
 @media screen and (max-width: 768px) {
   .skills {
-    max-height: 560px;
-    overflow-y: auto;
+    height: auto;
+    overflow: visible;
+    max-height: none;
     place-content: baseline;
   }
-  .skills .wrapper {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-  }
-  .skills .card {
-    width: 80%;
-  }
-}
-
-@media screen and (max-width: 480px) {
+  
   .skills .filter-buttons {
     display: none;
+  }
+  
+  .skills .wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+  
+  .skills .card {
+    width: 80%;
+    background-color: var(--bg-color-v);
   }
 }

@@ -26,24 +26,33 @@ const NavLink = memo(({ section, activeSection, setActiveSection, setShowNav, t 
   );
 });
 
-const MobileMenu = memo(({ showNav, activeSection, setActiveSection, setShowNav, t }) => (
-  <div className="mobile-nav">
-    <div className="mobile-nav-content-wrapper">
-      <div className="mobile-nav-content">
-        {["home", "resume", "projects", "contact"].map((section) => (
-          <NavLink
-            key={section}
-            section={section}
-            activeSection={activeSection}
-            setActiveSection={setActiveSection}
-            setShowNav={setShowNav}
-            t={t}
-          />
-        ))}
+const MobileMenu = memo(({ showNav, activeSection, setActiveSection, setShowNav, t }) => {
+  const handleLanguageToggle = () => {
+    setShowNav(false);
+  };
+
+  return (
+    <div className="mobile-nav">
+      <div className="mobile-nav-content-wrapper">
+        <div className="mobile-nav-content">
+          {["home", "resume", "projects", "contact"].map((section) => (
+            <NavLink
+              key={section}
+              section={section}
+              activeSection={activeSection}
+              setActiveSection={setActiveSection}
+              setShowNav={setShowNav}
+              t={t}
+            />
+          ))}
+          <div className="mobile-language-toggle-wrapper">
+            <LanguageToggle onToggle={handleLanguageToggle} />
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-));
+  );
+});
 
 const Navbar = () => {
   const [t, i18n] = useTranslation("global");
@@ -105,8 +114,8 @@ const Navbar = () => {
           ))}
           <LanguageToggle />
         </div>
-        <button className="text-white hamburger-menu" onClick={toggleNav}>
-          ☰
+        <button className={`text-white hamburger-menu ${showNav ? 'active' : ''}`} onClick={toggleNav}>
+          <span></span>
         </button>
       </div>
       {showNav && (

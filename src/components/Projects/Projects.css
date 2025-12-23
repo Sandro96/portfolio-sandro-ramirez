@@ -162,6 +162,7 @@
 @media screen and (max-width: 480px) {
   .card-content .details .techs ul {
     gap: 12px;
+    justify-content: center;
   }
   .card-content .details .techs ul li {
     font-size: 0.75rem;
@@ -184,5 +185,8 @@
   }
   .card-content .details .numeration {
     font-size: 3rem;
+  }
+  .projects .indicators {
+    display: none;
   }
 }

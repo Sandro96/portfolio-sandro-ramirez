@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { debounce } from "./utils/debounce";
 
-const LanguageToggle = () => {
+const LanguageToggle = ({ onToggle }) => {
   const [t, i18n] = useTranslation("global");
   const language = i18n.language;
 
@@ -10,6 +10,9 @@ const LanguageToggle = () => {
     const newLang = language === "es" ? "en" : "es";
     i18n.changeLanguage(newLang);
     localStorage.setItem("language", newLang);
+    if (onToggle) {
+      onToggle();
+    }
   }, 300);
 
   return (

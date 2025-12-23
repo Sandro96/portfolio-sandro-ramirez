@@ -223,14 +223,34 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   .experience {
     padding: 10px;
+    height: auto;
+    overflow: visible;
+  }
+  
+  .experience-list {
+    height: auto;
+    overflow: visible;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .experience-content {
+    height: auto;
+    overflow: visible;
+  }
+  
+  .experience-details {
+    height: auto;
+    overflow: visible;
+    max-height: none;
   }
   
   .experience-tab {
     padding: 12px;
-    min-width: 200px;
+    min-width: 100%;
   }
   
   .experience-tab h3 {

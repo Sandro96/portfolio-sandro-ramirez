@@ -112,3 +112,17 @@
     padding: 20px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .about {
+    height: auto;
+    overflow: visible;
+  }
+  
+  .presentation-card {
+    height: auto;
+    overflow: visible;
+    max-height: none;
+    flex: none;
+  }
+}

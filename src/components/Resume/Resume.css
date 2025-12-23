@@ -103,13 +103,51 @@
   .resume .dynamic-view {
     width: 460px;
   }
-}
-
-@media screen and (max-width: 480px) {
-  .resume .button-group button {
-    width: 150px;
+  
+  .resume .container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 0;
   }
+  
+  .resume .content {
+    width: 100%;
+    order: 1;
+  }
+  
+  .resume .button-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+  }
+  
+  .resume .button-group button {
+    width: 100%;
+    max-width: 150px;
+  }
+  
+  .resume .text-content {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
   .resume .dynamic-view {
-    width: 350px;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: auto;
+    order: 2;
+    overflow: visible;
+    box-shadow: none;
+    border-radius: 0;
+    background: transparent;
+  }
+  
+  .resume .dynamic-view > * {
+    width: 100%;
+    height: auto;
+    overflow: visible;
   }
 }

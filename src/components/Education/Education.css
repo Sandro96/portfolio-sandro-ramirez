@@ -185,3 +185,17 @@
         font-size: 1rem;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .education {
+        height: auto;
+        overflow: visible;
+        padding: 10px;
+    }
+    
+    .education-container {
+        height: auto;
+        overflow: visible;
+        max-height: none;
+    }
+}
