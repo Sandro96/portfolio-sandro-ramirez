@@ -19,7 +19,7 @@ const Header = () => {
   const language = i18n.language;
 
   const cvFilename =
-    language === "en" ? "sandroramirez_cv_eng.pdf" : "sandroramirez_cv.pdf";
+    language === "en" ? "ramirezsandro-cv-en.pdf" : "ramirezsandro-cv.pdf";
   const cvLink = `/pdf/${cvFilename}`;
 
   const [refTitle, inViewTitle] = useInView({ triggerOnce: false, threshold: 0.2 });
