@@ -43,10 +43,12 @@ const Projects = () => {
   const projects = i18n.language === "en" ? projects_en : projects_es;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isImageHovered, setIsImageHovered] = useState(false);
   const intervalRef = useRef(null);
   const currentIndexRef = useRef(0);
   const isTransitioningRef = useRef(false);
   const isPageVisibleRef = useRef(true);
+  const isImageHoveredRef = useRef(false);
   const AUTO_CHANGE_INTERVAL = 6000; // 6 segundos
 
   const mapSkillsToProjects = (projects, skills) => {
@@ -83,7 +85,7 @@ const Projects = () => {
     }
     const totalProjects = projectsWithSkills.length;
     intervalRef.current = setInterval(() => {
-      if (!isTransitioningRef.current && isPageVisibleRef.current) {
+      if (!isTransitioningRef.current && isPageVisibleRef.current && !isImageHoveredRef.current) {
         const nextIndex = (currentIndexRef.current + 1) % totalProjects;
         changeProject(nextIndex);
       }
@@ -110,9 +112,30 @@ const Projects = () => {
     resetAutoChange();
   }, [currentIndex, isTransitioning, changeProject, resetAutoChange]);
 
+  const handleImageMouseEnter = useCallback(() => {
+    setIsImageHovered(true);
+    isImageHoveredRef.current = true;
+    // Pausar el intervalo cuando el mouse está sobre la imagen
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  }, []);
+
+  const handleImageMouseLeave = useCallback(() => {
+    setIsImageHovered(false);
+    isImageHoveredRef.current = false;
+    // Reanudar el intervalo cuando el mouse sale de la imagen
+    resetAutoChange();
+  }, [resetAutoChange]);
+
   useEffect(() => {
     currentIndexRef.current = currentIndex;
   }, [currentIndex]);
+
+  useEffect(() => {
+    isImageHoveredRef.current = isImageHovered;
+  }, [isImageHovered]);
 
   // Page Visibility API para pausar cuando la página no está visible
   useEffect(() => {
@@ -151,6 +174,12 @@ const Projects = () => {
   }, [resetAutoChange]);
 
   const currentProject = projectsWithSkills[currentIndex];
+
+  const handleImageClick = useCallback(() => {
+    if (currentProject.urls.view) {
+      window.open(currentProject.urls.view, '_blank', 'noopener,noreferrer');
+    }
+  }, [currentProject]);
 
   const formatId = (index, totalProjects) => {
     return String(index + 1).padStart(2, "0");
@@ -227,7 +256,10 @@ const Projects = () => {
           <img 
             src={currentProject.img} 
             alt={currentProject.name}
-            className={isTransitioning ? "transitioning" : ""}
+            className={`${isTransitioning ? "transitioning" : ""} ${isImageHovered ? "hovered" : ""} ${currentProject.urls.view ? "clickable" : ""}`}
+            onMouseEnter={handleImageMouseEnter}
+            onMouseLeave={handleImageMouseLeave}
+            onClick={handleImageClick}
           />
           <div className="indicators">
             {projectsWithSkills.map((_, index) => (

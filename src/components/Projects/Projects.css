@@ -85,6 +85,15 @@
   transform: scale(0.95);
 }
 
+.card-image img.hovered {
+  transform: scale(1.01);
+  box-shadow: 0 0 10px rgba(34, 200, 164, 0.25);
+}
+
+.card-image img.clickable {
+  cursor: pointer;
+}
+
 .card-content {
   flex: 1;
   display: flex;
