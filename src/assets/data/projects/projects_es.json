@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Portfolio Web",
-        "img": "img/PortfolioSc.webp",
+        "img": "img/portfolio.webp",
         "description": "Un portafolio moderno que muestra proyectos web y digitales con detalles sobre soluciones creativas y habilidades. Un reflejo de dedicación a la excelencia digital.",
         "techs": [
             15
@@ -14,7 +14,7 @@
     {
         "id": 2,
         "name": "API Send Mail",
-        "img": "img/ApiSendMailSc.webp",
+        "img": "img/api-send-mail.webp",
         "description": "API creada para enviar correos electrónicos utilizando Resend. Configuración de credenciales y destinatarios a través de variables de entorno.",
         "techs": [
             18
@@ -26,7 +26,7 @@
     {
         "id": 3,
         "name": "Alkas Telecom",
-        "img": "img/AlkasTelecomSc.webp",
+        "img": "img/alkas-telecom.webp",
         "description": "Una página de inicio para Alkas Telecom, una compañía de telecomunicaciones ficticia que ofrece planes y dispositivos móviles de vanguardia.",
         "techs": [
             15,
@@ -40,24 +40,22 @@
         }
     },
     {
-        "id": 4,
-        "name": "Alkas Security",
-        "img": "img/AlkasSecuritySc.webp",
-        "description": "Una página de inicio para Alkas Telecom, una compañía de seguridad ficticia con un diseño resposivo.",
+        "id": 7,
+        "name": "ReMatter",
+        "img": "img/rematter.webp",
+        "description": "Plataforma que transforma residuos municipales en electricidad limpia y materiales de construcción mediante optimización impulsada por IA. Construyendo un futuro sostenible a través de la innovación.",
         "techs": [
             16,
-            4,
             5
         ],
         "urls": {
-            "code": "https://github.com/Sandro96/alkas-security",
-            "view": "https://alkas-security.vercel.app"
+            "view": "https://www.rematter.us/"
         }
     },
     {
         "id": 5,
         "name": "Cuper Supermarket",
-        "img": "img/CuperSupermarketSc.webp",
+        "img": "img/cuper.webp",
         "description": "Una plataforma ficticia de e-commerce que permite explorar productos, gestionar un carrito de compras y realizar pedidos con autenticación de usuarios.",
         "techs": [
             16,
@@ -73,8 +71,8 @@
     {
         "id": 6,
         "name": "CaminoCode",
-        "img": "img/CaminoCodeSc.webp",
-        "description": "Empresa que construye plataformas con IA. Participé en el desarrollo de soluciones de inteligencia artificial aplicada.",
+        "img": "img/camino-code.webp",
+        "description": "Empresa que construye plataformas con inteligencia artificial aplicada. Me encargué del diseño, desarrollo, branding y construcción de esta página web.",
         "techs": [
             16,
             5

@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Web Portfolio",
-        "img": "img/PortfolioSc.webp",
+        "img": "img/portfolio.webp",
         "description": "A modern portfolio showcasing web and digital projects with details about creative solutions and skills. A reflection of dedication to digital excellence.",
         "techs": [
             15
@@ -14,7 +14,7 @@
     {
         "id": 2,
         "name": "API Send Mail",
-        "img": "img/ApiSendMailSc.webp",
+        "img": "img/api-send-mail.webp",
         "description": "API created to send emails using Resend. Credential and recipient configuration via environment variables.",
         "techs": [
             18
@@ -26,7 +26,7 @@
     {
         "id": 3,
         "name": "Alkas Telecom",
-        "img": "img/AlkasTelecomSc.webp",
+        "img": "img/alkas-telecom.webp",
         "description": "A landing page for Alkas Telecom, a fictional telecommunications company offering cutting-edge mobile plans and devices.",
         "techs": [
             15,
@@ -40,24 +40,22 @@
         }
     },
     {
-        "id": 4,
-        "name": "Alkas Security",
-        "img": "img/AlkasSecuritySc.webp",
-        "description": "A landing page for Alkas Security, a fictional security company with a responsive design.",
+        "id": 7,
+        "name": "ReMatter",
+        "img": "img/rematter.webp",
+        "description": "Platform that transforms municipal waste into clean electricity and construction materials through AI-driven optimization. Building a sustainable future through innovation.",
         "techs": [
             16,
-            4,
             5
         ],
         "urls": {
-            "code": "https://github.com/Sandro96/alkas-security",
-            "view": "https://alkas-security.vercel.app"
+            "view": "https://www.rematter.us/"
         }
     },
     {
         "id": 5,
         "name": "Cuper Supermarket",
-        "img": "img/CuperSupermarketSc.webp",
+        "img": "img/cuper.webp",
         "description": "A fictional e-commerce platform that allows users to explore products, manage a shopping cart, and place orders with user authentication.",
         "techs": [
             16,
@@ -73,8 +71,8 @@
     {
         "id": 6,
         "name": "CaminoCode",
-        "img": "img/CaminoCodeSc.webp",
-        "description": "Company that builds AI-powered platforms. I participated in developing applied artificial intelligence solutions.",
+        "img": "img/camino-code.webp",
+        "description": "Company that builds AI-powered platforms with applied artificial intelligence solutions. I was responsible for the design, development, branding and building of this website.",
         "techs": [
             16,
             5

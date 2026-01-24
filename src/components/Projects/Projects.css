@@ -75,6 +75,40 @@
   width: auto;
   object-fit: cover;
   box-shadow: 0 0 5px #000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.card-image img.transitioning {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.card-content.transitioning {
+  opacity: 0.6;
+}
+
+.card-content .buttons button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.navigation button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .navigation {

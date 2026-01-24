@@ -48,7 +48,6 @@ function App() {
         <meta property="og:description" content={t("meta.og-description")} />
         <meta property="og:url" content="https://ramirezsandro.com" />
 
-        <meta property="og:image" content="https://ramirezsandro.com/img/preview.jpg" />
         <meta property="og:image:alt" content={t("meta.og-image-alt")} />
 
         <link rel="canonical" href="https://ramirezsandro.com" />

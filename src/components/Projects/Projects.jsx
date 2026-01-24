@@ -1,5 +1,5 @@
 import "./Projects.css";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import projects_en from "../../assets/data/projects/projects_en.json";
 import projects_es from "../../assets/data/projects/projects_es.json";
@@ -42,6 +42,12 @@ const Projects = () => {
   const { t, i18n } = useTranslation("global");
   const projects = i18n.language === "en" ? projects_en : projects_es;
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const intervalRef = useRef(null);
+  const currentIndexRef = useRef(0);
+  const isTransitioningRef = useRef(false);
+  const isPageVisibleRef = useRef(true);
+  const AUTO_CHANGE_INTERVAL = 6000; // 6 segundos
 
   const mapSkillsToProjects = (projects, skills) => {
     const sortedProjects = [...projects].sort((a, b) => b.id - a.id);
@@ -57,30 +63,105 @@ const Projects = () => {
 
   const projectsWithSkills = mapSkillsToProjects(projects, skillsData);
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % projectsWithSkills.length);
-  };
+  const changeProject = useCallback((newIndex) => {
+    isTransitioningRef.current = true;
+    setIsTransitioning(true);
+    
+    setTimeout(() => {
+      setCurrentIndex(newIndex);
+      currentIndexRef.current = newIndex;
+      setTimeout(() => {
+        isTransitioningRef.current = false;
+        setIsTransitioning(false);
+      }, 300); // Duración de la transición
+    }, 50);
+  }, []);
 
-  const handlePrevious = () => {
-    setCurrentIndex(
-      (prevIndex) =>
-        (prevIndex - 1 + projectsWithSkills.length) % projectsWithSkills.length
-    );
-  };
+  const resetAutoChange = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    const totalProjects = projectsWithSkills.length;
+    intervalRef.current = setInterval(() => {
+      if (!isTransitioningRef.current && isPageVisibleRef.current) {
+        const nextIndex = (currentIndexRef.current + 1) % totalProjects;
+        changeProject(nextIndex);
+      }
+    }, AUTO_CHANGE_INTERVAL);
+  }, [changeProject, projectsWithSkills.length]);
+
+  const handleNext = useCallback(() => {
+    if (isTransitioning) return;
+    const nextIndex = (currentIndex + 1) % projectsWithSkills.length;
+    changeProject(nextIndex);
+    resetAutoChange();
+  }, [currentIndex, projectsWithSkills.length, isTransitioning, changeProject, resetAutoChange]);
+
+  const handlePrevious = useCallback(() => {
+    if (isTransitioning) return;
+    const prevIndex = (currentIndex - 1 + projectsWithSkills.length) % projectsWithSkills.length;
+    changeProject(prevIndex);
+    resetAutoChange();
+  }, [currentIndex, projectsWithSkills.length, isTransitioning, changeProject, resetAutoChange]);
+
+  const handleIndicatorClick = useCallback((index) => {
+    if (isTransitioning || index === currentIndex) return;
+    changeProject(index);
+    resetAutoChange();
+  }, [currentIndex, isTransitioning, changeProject, resetAutoChange]);
+
+  useEffect(() => {
+    currentIndexRef.current = currentIndex;
+  }, [currentIndex]);
+
+  // Page Visibility API para pausar cuando la página no está visible
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      isPageVisibleRef.current = !document.hidden;
+      
+      if (document.hidden) {
+        // Pausar el intervalo cuando la página no está visible
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current);
+          intervalRef.current = null;
+        }
+      } else {
+        // Reanudar el intervalo cuando la página vuelve a estar visible
+        resetAutoChange();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [resetAutoChange]);
+
+  useEffect(() => {
+    // Solo iniciar el intervalo si la página está visible
+    if (!document.hidden) {
+      resetAutoChange();
+    }
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [resetAutoChange]);
 
   const currentProject = projectsWithSkills[currentIndex];
 
-  const formatId = (id, totalProjects) => {
-    const maxDigits = totalProjects.toString().length;
-    return String(totalProjects - id + 1).padStart(maxDigits + 1, "0");
+  const formatId = (index, totalProjects) => {
+    return String(index + 1).padStart(2, "0");
   };
 
   return (
     <section className="projects container">
       <div className="card-wrapper">
-        <div className="card-content">
+        <div className={`card-content ${isTransitioning ? "transitioning" : ""}`}>
           <div className="details">
-            <p className="numeration">{formatId(currentProject.id, projectsWithSkills.length)}</p>
+            <p className="numeration">{formatId(currentIndex, projectsWithSkills.length)}</p>
             <h2>{currentProject.name}</h2>
             <p>{currentProject.description}</p>
             <div className="techs">
@@ -105,7 +186,7 @@ const Projects = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <button>
+                <button disabled={isTransitioning}>
                   <AiOutlineGithub />
                   {t("projects.code")}
                 </button>
@@ -117,7 +198,7 @@ const Projects = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <button>
+                <button disabled={isTransitioning}>
                   <TfiWorld />
                   {t("projects.view")}
                 </button>
@@ -129,7 +210,7 @@ const Projects = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <button>
+                <button disabled={isTransitioning}>
                   <MdDesignServices />
                   {t("projects.design")}
                 </button>
@@ -143,7 +224,11 @@ const Projects = () => {
           </div>
         </div>
         <div className="card-image">
-          <img src={currentProject.img} alt={currentProject.name} />
+          <img 
+            src={currentProject.img} 
+            alt={currentProject.name}
+            className={isTransitioning ? "transitioning" : ""}
+          />
           <div className="indicators">
             {projectsWithSkills.map((_, index) => (
               <div
@@ -151,7 +236,7 @@ const Projects = () => {
                 className={`indicator ${
                   index === currentIndex ? "active" : ""
                 }`}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => handleIndicatorClick(index)}
               ></div>
             ))}
           </div>
@@ -159,8 +244,8 @@ const Projects = () => {
       </div>
 
       <div className="navigation">
-        <button onClick={handlePrevious}>{"<"}</button>
-        <button onClick={handleNext}>{">"}</button>
+        <button onClick={handlePrevious} disabled={isTransitioning}>{"<"}</button>
+        <button onClick={handleNext} disabled={isTransitioning}>{">"}</button>
       </div>
     </section>
   );
