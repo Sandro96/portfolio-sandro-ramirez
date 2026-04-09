@@ -1,5 +1,10 @@
 [
     {
+        "id": 4,
+        "customer": "Neowyze",
+        "description": "At Neowyze, I play an integral role as a Full Stack Developer, contributing to the design and development of interactive interfaces with React.js, Astro, and vanilla HTML, as well as the integration of external APIs through NestJS. I also lead the implementation of AI-driven automation to streamline development workflows, strengthen auditing processes, and optimize software testing. My work combines technical execution with user experience considerations, ensuring scalable, efficient, and reliable solutions across assigned projects."
+    },
+    {
         "id": 3,
         "customer": "CaminoCode",
         "description": "At CaminoCode, I play an integral role as a full stack developer, participating in the design and development of interactive interfaces with React and Next.js, integrating external APIs through NestJS and Go, and optimizing performance and scalability in SaaS platforms with PostgreSQL. Additionally, I collaborated on the redesign of the company logo, contributing to the visual identity and brand consistency. My work combines technical implementation with user experience criteria, ensuring functional and consistent solutions for assigned projects."

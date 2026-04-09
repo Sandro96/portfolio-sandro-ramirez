@@ -1,9 +1,16 @@
 [
     {
+        "id": 4,
+        "name": "Full Stack Developer",
+        "company": "Neowyze",
+        "period": "March 2026 - Present",
+        "details": [4]
+    },
+    {
         "id": 3,
         "name": "FullStack Software Engineer",
         "company": "CaminoCode · Freelance",
-        "period": "October 2025 - Present",
+        "period": "October 2025 - February 2026",
         "details": [3]
     },
     {
